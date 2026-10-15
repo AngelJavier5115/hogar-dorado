@@ -50,3 +50,7 @@ See:
 ## Privacy and safety
 
 Do not commit credentials, API keys, tokens, private personal data, or files that Ángel has chosen to keep private. Do not claim a feature was implemented or tested without evidence.
+
+## Latest technical research
+
+- [Investigación v16: variantes de emisión y validación](docs/INVESTIGACION_V16_PRUEBAS_EMISION.md) — v16 personal test variants, static validation, and an in-game A/B protocol. The downloadable mcpack files are kept outside the repository because they contain vanilla assets for personal testing only.
