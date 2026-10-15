@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-14 — Hogar Dorado v17 personal corrective build
+
+- Documented v16 gameplay feedback from Ángel: overly bright/washed material details and poor underwater visibility; the underwater glints/particles he liked should be preserved.
+- Generated one local v17 balanced test package only. Restored vanilla-reference metalness/roughness channels, lowered and spatially limited ore emission, restored selective emission masks for glowstone/sea lantern/shroomlight, and zeroed lava's PBR emissive channel to preserve animated surface detail.
+- Reduced water volumetric density/absorption and extended underwater fog distance in 19 fog profiles.
+- Static validation passed: ZIP integrity, 117/117 valid JSON files, 26 Texture Sets, no missing references, no color/map size mismatches.
+- The mcpack remains outside GitHub because it contains vanilla reference assets. In-game appearance and iPhone performance are still pending.
+- Report: docs/INVESTIGACION_V17_CORRECCION_TEXTURAS_AGUA.md.
+
 ## 2026-10-15 — Hogar Dorado v16 personal test variants
 
 - Added docs/INVESTIGACION_V16_PRUEBAS_EMISION.md documenting the v14/v15 comparison, two local v16 emission variants, entity Texture Sets/MERS, static validation, and an A/B gameplay test protocol.
