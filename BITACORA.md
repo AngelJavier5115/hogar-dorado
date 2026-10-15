@@ -2,6 +2,16 @@
 
 Chronological record of meaningful milestones. Exact dates are only recorded when known.
 
+## 2026-10-15 — Investigación II: arquitectura visual y técnicas avanzadas
+
+- Se añadió `docs/INVESTIGACION_II_ARQUITECTURA_VISUAL_Y_TECNICAS.md` como segunda ronda de investigación independiente.
+- Se distingue la emisión PBR en texturas de la iluminación local coloreada con `local_lighting.json`. En los packs revisados, BSLB y Solar incluyen este archivo; Dark Fantasy no lo contiene en esta copia inspeccionada.
+- Se documentaron perfiles ambientales compartidos por bioma, cobertura de `dappled_forest` y `sulfur_caves`, valores fallback de PBR, subpacks con overrides pequeños, keyframes, SSS y cubemap.
+- Se propone usar primero una prueba de luz cálida y una prueba de redstone, después revisar biomas nuevos y solo más tarde estudiar SSS/cubemap.
+- Se incluyó una auditoría estática de archivos y rutas de recursos, además de una posible ruta de validación con Minecraft Creator Tools y un futuro validador automatizado.
+- Los datos de los packs son observaciones del contenido de los archivos y no equivalen a pruebas de rendimiento o compatibilidad. No se ejecutó Minecraft y no se modificaron activos ni código del pack.
+- Próximo paso: Claude debe comparar las propuestas con la referencia v13, verificar la versión objetivo y elegir con Ángel un experimento pequeño y reversible.
+
 ## 2026-10-15 — Investigación técnica y optimización
 
 - Ángel pidió que los hallazgos sobre Hogar Dorado se documenten en GitHub para que Claude pueda revisarlos al regresar y valorar su implementación en la siguiente versión.
