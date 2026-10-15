@@ -2,10 +2,10 @@
 
 - Ángel probó la v17 y reportó que lava y portal del Nether seguían viéndose mal y que el pack había perdido impacto visual.
 - La auditoría de píxeles confirmó que las texturas base de lava quieta, lava en flujo y portal eran variantes estilizadas de franjas repetitivas, no la textura de referencia Bedrock compartida por Ángel. Sus dimensiones animadas ya eran correctas en v17; el problema dominante era el contenido visual, no la longitud de las tiras.
-- Se creó una única compilación local v18. Se restauraron textures/blocks/lava_still.png, lava_flow.png y portal.png desde la referencia 26.50.0; dimensiones 16×512, 32×512 y 16×512. Los mapas MER de lava permanecen como en v17.
+- Se creó una única compilación local v18. Se restauraron textures/blocks/lava_still.png, lava_flow.png y portal.png desde la referencia 26.50.0; dimensiones 16×512, 32×512 y 16×512. También se actualizaron sus Texture Sets al formato 1.21.30 de referencia y se añadieron mapas MERS de lava y portal y mapas normal de ambas texturas de lava.
 - Para explorar la pérdida de impacto en el End sin alterar el mundo normal ni el Nether, se añadió gradación hogar:end con un matiz frío/índigo moderado y se redujo la densidad aérea del End de 0.005 a 0.0028, con inicio de niebla de 0.73 a 0.80.
-- Validación estática: ZIP íntegro, 118 JSON válidos, 172 archivos; las tres imágenes son idénticas byte a byte a la referencia aportada y coinciden las dimensiones de las texturas de lava y sus mapas MER.
-- Paquete local: hogar-dorado-v18-restaurada-PRUEBAS-PERSONALES.mcpack; SHA-256 f029d3965b88400d5fcb884581de9fd1d7b577812ac63bbd15c6c2d088c0363d.
+- Validación estática: ZIP íntegro, 119 JSON válidos, 176 archivos, 27 Texture Sets con referencias completas; las tres imágenes son idénticas byte a byte a la referencia aportada y coinciden las dimensiones de color/mapas de material.
+- Paquete local: hogar-dorado-v18-restaurada-PRUEBAS-PERSONALES.mcpack; SHA-256 56ad3f1c43496fc113dba063a908af61661a09b51e595aeea75d1aecbc0b236c.
 - No se subió el mcpack al repositorio porque contiene assets vanilla de referencia. **Pendiente:** prueba visual de v18 en Minecraft Bedrock 26.52; no se midieron FPS, memoria ni temperatura.
 - Informe: docs/INVESTIGACION_V18_RESTAURACION_LAVA_PORTAL_END.md.
 
