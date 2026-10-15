@@ -2,6 +2,16 @@
 
 Chronological record of meaningful milestones. Exact dates are only recorded when known.
 
+## 2026-10-15 — Investigación IV: auditoría de Vanilla Resource Pack 26.50.0
+
+- Se inspeccionó estáticamente el archivo MCBVanillaResourcePack-26.50.0.zip aportado por Ángel. El ZIP contiene 18.417 archivos y 3.130 Texture Sets; no se extrajeron ni se añadieron assets al repositorio de Hogar Dorado.
+- Se documentó `docs/INVESTIGACION_IV_AUDITORIA_VANILLA_26_50.md`, con inventario, patrones de Texture Sets, mapas MERS, biomas, limitaciones, licencia/procedencia y próximos experimentos.
+- Hallazgo útil para validación: la textura de color puede ser PNG o TGA; una comprobación que busque solo PNG crea falsos errores.
+- Hallazgo útil para diseño: el canal verde emisivo varía por recurso. La redstone vanilla examinada tiene el canal verde en cero, mientras BSLB activa un subconjunto de píxeles; los mapas de enderman y spider vanilla iluminan detalles diminutos. No usar una intensidad uniforme para todos los materiales.
+- Se corrigió la suposición de que todas las criaturas necesariamente requieren un único método de emisión: el paquete vanilla contiene Texture Sets y mapas MERS de entidades; evaluar el método por recurso y versión.
+- Se constató que el repositorio MCBVanillaResourcePack declara que los assets pertenecen a Mojang/Microsoft y que se trata de una plantilla. El informe guarda observaciones técnicas, no recursos binarios.
+- La copia auditada corresponde a 26.50.0 y no se ejecutó dentro de Minecraft; todos los hallazgos deben contrastarse con la referencia v13 y probarse antes de implementarlos.
+
 ## 2026-10-15 — Propuesta de catálogo central y generación de biomas
 
 - Se documentó `docs/PROPUESTA_CATALOGO_BIOMAS_Y_GENERADOR.md`, con modelo de datos sugerido, ejemplo conceptual, responsabilidades de catálogo/perfiles, generador determinista, validaciones, pruebas y posible CI mediante GitHub Actions.
