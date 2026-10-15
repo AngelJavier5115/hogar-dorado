@@ -11,6 +11,13 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - **Repositorio:** privado, AngelJavier5115/hogar-dorado.
 - **Responsable:** Ángel.
 
+## Estado de pruebas v16 (15 de octubre de 2026)
+- Hay dos paquetes locales para comparar: emisión equilibrada e intensa. Están fuera de GitHub porque contienen recursos vanilla de referencia y son solo para pruebas personales.
+- El informe técnico está en docs/INVESTIGACION_V16_PRUEBAS_EMISION.md.
+- Validación estática: ZIP íntegro, JSON parseable, 26 Texture Sets, ninguna referencia de textura faltante y ninguna discrepancia de dimensiones color/mapa.
+- Se añadieron Texture Sets/MERS para Enderman, Blaze y Magma Cube. Es una prueba PBR de entidades; no se implementó entity_emissive_alpha.
+- **No probado aún dentro del juego:** apariencia final, errores de runtime, FPS, temperatura ni comodidad visual en iPhone 14 Plus. Mantener v13 como referencia histórica congelada; no publicar las variantes v16.
+
 ## Contexto confirmado
 - La intención artística combina nostalgia, dreamcore, atardeceres dorados, noches índigo y profundidad atmosférica.
 - La prioridad es preservar la identidad de Minecraft y ofrecer armonía visual, no solo efectos espectaculares.
