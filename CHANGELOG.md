@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-15 — Hogar Dorado v19 personal visual-identity test
+
+- Made the restored portal texture more translucent by reducing alpha to 80% of its prior value.
+- Increased lava_still and lava_flow RGB values by 20% (clamped to 255) while leaving PBR emission unchanged to preserve detail.
+- Tested a richer indigo End sky/fog palette and lowered End air volumetric density to 0.0008.
+- Static validation passed: 176 files, 119 valid JSON files, correct animation-strip dimensions. In-game appearance remains unverified.
+- Personal-only .mcpack stays outside GitHub because it includes vanilla reference assets.
+- Report: docs/INVESTIGACION_V19_IDENTIDAD_PORTAL_LAVA_END.md.
+
 ## 2026-10-14 — Hogar Dorado v18 personal texture restoration
 
 - Based on Ángel's in-game screenshots, restored the lava_still, lava_flow and portal color strips from the user-supplied Bedrock 26.50.0 reference pack; preserved expected frame-strip dimensions and added reference Texture Sets, MERS maps for lava/portal, and lava normal maps.
