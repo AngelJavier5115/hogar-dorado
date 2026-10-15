@@ -52,6 +52,11 @@ Consulta `docs/INVESTIGACION_III_COMPATIBILIDAD_CREATOR_TOOLS_Y_V12.md` para ver
 
 No se ejecutó Minecraft ni Creator Tools desde esta actualización; los resultados de v12 son inventario estático. Contrastar todo con la referencia v13 antes de modificar archivos.
 
+## Propuesta de catálogo de biomas y generador
+Consulta `docs/PROPUESTA_CATALOGO_BIOMAS_Y_GENERADOR.md` para ver una arquitectura propuesta de fuente única JSON, perfiles compartidos, generación determinista, pruebas del generador y futura integración con GitHub Actions.
+
+**Estado:** documentación de diseño solamente. El repositorio actualmente contiene documentación, pero todavía no tiene el resource pack fuente ni el script de construcción. Antes de implementar, Claude debe cotejar la propuesta con el script existente y extraer los valores reales de la referencia v13. No reconstruir el catálogo a partir de la paleta de v8.
+
 ## Evidencia y límites
 - La portada generada es una referencia visual, no una captura real del juego.
 - No hay validación completa de la beta en Minecraft registrada aquí.
