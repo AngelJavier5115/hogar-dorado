@@ -11,12 +11,19 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - **Repositorio:** privado, AngelJavier5115/hogar-dorado.
 - **Responsable:** Ángel.
 
-## Estado de pruebas v16 (15 de octubre de 2026)
-- Hay dos paquetes locales para comparar: emisión equilibrada e intensa. Están fuera de GitHub porque contienen recursos vanilla de referencia y son solo para pruebas personales.
-- El informe técnico está en docs/INVESTIGACION_V16_PRUEBAS_EMISION.md.
-- Validación estática: ZIP íntegro, JSON parseable, 26 Texture Sets, ninguna referencia de textura faltante y ninguna discrepancia de dimensiones color/mapa.
-- Se añadieron Texture Sets/MERS para Enderman, Blaze y Magma Cube. Es una prueba PBR de entidades; no se implementó entity_emissive_alpha.
-- **No probado aún dentro del juego:** apariencia final, errores de runtime, FPS, temperatura ni comodidad visual en iPhone 14 Plus. Mantener v13 como referencia histórica congelada; no publicar las variantes v16.
+## Estado de pruebas v16 (prueba visual de Ángel)
+- Ángel probó la variante equilibrada v16 en Minecraft Bedrock 26.52 y compartió capturas reales.
+- Hallazgos reportados: texturas que pierden detalle, emisión demasiado intensa en algunas superficies/lava y visibilidad subacuática insuficiente; indicó que le gustan los destellos/partículas de las escenas submarinas.
+- Solo se probó la variante equilibrada; la variante intensa no se probó y no continuará como línea de trabajo por ahora.
+- El informe técnico original de v16 está en docs/INVESTIGACION_V16_PRUEBAS_EMISION.md.
+- Las comprobaciones estáticas anteriores de v16 siguen válidas (ZIP, JSON y 26 Texture Sets), pero no garantizaban el aspecto visual. No hay medidas de FPS, memoria, temperatura ni comodidad visual.
+
+## Estado de corrección v17 (14 de octubre de 2026)
+- Se generó una sola compilación local: `hogar-dorado-v17-equilibrada-CORREGIDA-PRUEBAS-PERSONALES.mcpack`, fuera de GitHub porque contiene recursos vanilla de referencia.
+- Cambios principales: restauración de rugosidad/metalness desde mapas de referencia; emisiones selectivas y reducidas en minerales; máscaras de emisión espaciales recuperadas para glowstone, sea lantern y shroomlight; emisión PBR de lava apagada en el mapa material para evitar lavar la textura; absorción volumétrica submarina reducida en los 19 perfiles de niebla.
+- Validación estática: ZIP íntegro, 117/117 JSON válidos, 26 Texture Sets, cero referencias faltantes y cero discrepancias dimensionales de mapas.
+- **Pendiente:** Ángel debe importar y probar v17 en Bedrock 26.52 con Vibrant Visuals activo. Verificar textura/animación de lava, color y detalle de minerales, visibilidad mirando desde arriba y desde debajo del agua, y conservar los destellos que le gustaron.
+- **No se ha probado v17 dentro del juego** ni se ha medido rendimiento en el iPhone 14 Plus. La compilación es de uso personal de prueba; no publicar ni vender.
 
 ## Contexto confirmado
 - La intención artística combina nostalgia, dreamcore, atardeceres dorados, noches índigo y profundidad atmosférica.
@@ -77,19 +84,19 @@ Consulta `docs/INVESTIGACION_IV_AUDITORIA_VANILLA_26_50.md` para hallazgos está
 
 ## Evidencia y límites
 - La portada generada es una referencia visual, no una captura real del juego.
-- No hay validación completa de la beta en Minecraft registrada aquí.
+- La v16 equilibrada sí tiene una prueba visual de Ángel documentada; la v17 aún no se ha probado en Minecraft.
 - No se ha confirmado ningún ingreso, recompensa, nivel de descargas ni aceptación de publicación.
 - No registrar pruebas como exitosas a menos que se hayan ejecutado y documentado.
 - El inventario numérico de los packs de referencia incluido en la investigación es preliminar; no representa un benchmark de rendimiento.
-- No se han realizado pruebas de gameplay ni benchmarks como parte de esta actualización documental.
+- La única prueba visual de gameplay registrada en este ciclo corresponde a v16; no se midieron FPS/temperatura ni se probó v17.
 
 ## Último hito
-Se añadió investigación técnica independiente sobre PBR, emisión y optimización móvil, basada en documentación oficial y los materiales compartidos por Ángel. Se registró como documentación de continuidad, no como una modificación implementada del pack.
+Se generó una única compilación de prueba v17 a partir de los errores visuales reportados por Ángel en v16. El informe docs/INVESTIGACION_V17_CORRECCION_TEXTURAS_AGUA.md registra los cambios, las comprobaciones estáticas y los límites; el aspecto final de v17 aún requiere prueba en el juego.
 
 ## Próximas tres tareas
-1. Revisar la referencia v13 y auditar los texture sets/recursos objetivo según la investigación técnica.
-2. Elegir un experimento pequeño y reversible: redstone emisiva; después, una entidad si el primer caso funciona.
-3. Probar las escenas ambientales en el juego y registrar resultados reales en el dispositivo objetivo antes de decidir si se requieren variantes de rendimiento o publicar.
+1. Probar únicamente v17 en el iPhone 14 Plus y repetir las escenas de lava, minerales y agua documentadas en el informe.
+2. Registrar las capturas comparables y precisar cualquier textura que siga fallando antes de hacer otra modificación.
+3. Después de validar la apariencia, medir FPS/temperatura y contrastar los cambios con la referencia histórica v13 antes de considerar publicar.
 
 ## Decisiones que requieren aprobación de Ángel
 - Aprobación final del logotipo y la portada.
@@ -99,6 +106,6 @@ Se añadió investigación técnica independiente sobre PBR, emisión y optimiza
 - Decisiones de diseño que alteren de forma relevante los brillos, la atmósfera o el rendimiento objetivo.
 
 ## Registro técnico
-- **Pruebas de gameplay:** no registradas en este documento.
+- **Pruebas de gameplay:** Ángel probó la v16 equilibrada y compartió capturas; v17 permanece pendiente.
 - **Benchmarks de rendimiento:** no realizados.
-- **Cambio de esta actualización:** documentación solamente; no se modificó el código ni los archivos del pack.
+- **Cambio de esta actualización:** se generó v17 como paquete personal local y se documentaron los resultados; no se subió el binario ni se modificó un artefacto público del repositorio.
