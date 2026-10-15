@@ -1,3 +1,14 @@
+## 2026-10-14 — Hogar Dorado v17: corrección de texturas y visibilidad del agua
+
+- Ángel probó la v16 equilibrada y compartió capturas reales; señaló pérdida de detalle en texturas y poca visibilidad debajo del agua. Le gustaron los destellos/partículas de las escenas submarinas.
+- Al revisar los mapas PBR se encontró emisión verde uniforme en todos los píxeles de glowstone, sea lantern y shroomlight; mapas de lava con emisión PBR no nula en toda la superficie; y rugosidad de minerales uniforme en 40.
+- Se generó una única compilación local v17 equilibrada. R/B de los mapas MER de bloques toman la respuesta de material de los mapas MERS de referencia; las máscaras de minerales se mantienen con emisión reducida (76, redstone 90), los focos recuperan la máscara espacial original multiplicada por 1.8 y el canal emisivo de lava se pone en cero.
+- Se redujo la densidad/absorción volumétrica del agua en los 19 perfiles de niebla para intentar mejorar la visibilidad submarina sin eliminar por completo la atmósfera acuática.
+- Validación estática: ZIP íntegro, 117/117 JSON válidos, 26 Texture Sets, cero referencias de textura faltantes y cero discrepancias dimensionales de color/mapa.
+- Artefacto local: `hogar-dorado-v17-equilibrada-CORREGIDA-PRUEBAS-PERSONALES.mcpack`; SHA-256 `53cf8ffe84cfdfd1300d7dbfdef1dd805446e95b9f397c9afb6d56c59d2aab41`.
+- El paquete contiene assets de referencia vanilla y no se subió al repositorio. **Pendiente:** prueba visual en Bedrock 26.52 con Vibrant Visuals activo; no se han medido FPS, memoria ni temperatura en iPhone.
+- Informe: docs/INVESTIGACION_V17_CORRECCION_TEXTURAS_AGUA.md.
+
 # Bitácora de Hogar Dorado
 
 ## 2026-10-15 — Hogar Dorado v16: pruebas personales de emisión
