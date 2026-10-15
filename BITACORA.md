@@ -2,6 +2,15 @@
 
 Chronological record of meaningful milestones. Exact dates are only recorded when known.
 
+## 2026-10-15 — Propuesta de catálogo central y generación de biomas
+
+- Se documentó `docs/PROPUESTA_CATALOGO_BIOMAS_Y_GENERADOR.md`, con modelo de datos sugerido, ejemplo conceptual, responsabilidades de catálogo/perfiles, generador determinista, validaciones, pruebas y posible CI mediante GitHub Actions.
+- Se eligió JSON como punto de partida por ser el formato del pack y evitar una dependencia adicional de YAML; la decisión debe contrastarse con el script actual de Claude.
+- Se revisó el estado del repositorio: actualmente no contiene el source pack ni el script de construcción, así que no se implementó un generador desconectado de la fuente de verdad.
+- La propuesta recomienda extraer los valores reales desde v13 y el script existente; la lista de biomas y paletas del documento de investigación incluye referencias de v8 y no se debe usar sin verificación como fuente activa.
+- Se definieron comprobaciones para IDs duplicados, perfiles y rutas rotas, colores inválidos, biomas preview/unverified, generación determinista, archivos obsoletos y pruebas en Creator Tools/Minecraft.
+- No se modificó ningún archivo del resource pack ni se implementó código de generación. Próximo paso: revisión conjunta de Claude y Ángel antes de migrar.
+
 ## 2026-10-15 — Investigación III: compatibilidad, Creator Tools y auditoría de v12
 
 - Se creó `docs/INVESTIGACION_III_COMPATIBILIDAD_CREATOR_TOOLS_Y_V12.md`.
