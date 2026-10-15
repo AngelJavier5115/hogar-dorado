@@ -1,5 +1,15 @@
 # Bitácora de Hogar Dorado
 
+## 2026-10-15 — Hogar Dorado v16: pruebas personales de emisión
+
+- Se compararon localmente v14 y v15. v15 ya resuelve las referencias de sus Texture Sets de bloques y corrige las dimensiones de lava, portal y sea lantern.
+- Se generaron dos archivos locales v16 de prueba personal: emisión equilibrada e intensa. Cada uno tiene UUID nuevos y versión de manifest [1, 15, 0].
+- Se añadieron Texture Sets/MERS para Enderman, Blaze y Magma Cube usando las rutas de textura de la referencia vanilla; se aumentó solo el canal verde de emisión y se conservó la máscara espacial.
+- Validación estática de ambas variantes: ZIP íntegro, JSON válido, 26 Texture Sets, cero referencias faltantes y cero discrepancias de dimensiones entre color y mapas.
+- Las variantes contienen assets vanilla y son solo para pruebas personales; no se subieron los mcpack ni recursos binarios al repositorio.
+- **Pendiente:** importar y comparar en Minecraft Bedrock 26.52, con Vibrant Visuals activo, en el mismo escenario y luego comprobar rendimiento/temperatura en iPhone 14 Plus. No se afirma que el resultado visual ni el rendimiento ya estén probados.
+- Informe: docs/INVESTIGACION_V16_PRUEBAS_EMISION.md.
+
 Chronological record of meaningful milestones. Exact dates are only recorded when known.
 
 ## 2026-10-15 — Investigación IV: auditoría de Vanilla Resource Pack 26.50.0
