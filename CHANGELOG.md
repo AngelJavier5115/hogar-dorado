@@ -2,6 +2,12 @@
 
 Meaningful project changes only. Distinguish implemented work from proposals and tests.
 
+## 2026-10-15 — Advanced research II
+
+- Added `docs/INVESTIGACION_II_ARQUITECTURA_VISUAL_Y_TECNICAS.md` with static inspection of reference packs and research on colored local lighting, shared biome profiles, PBR fallbacks, keyframes, subsurface scattering, cubemaps, subpacks, validation tools, and proposed experiments.
+- Linked the report from the README and updated the project state and bitácora for Claude handoff.
+- Marked all findings as research or proposals; no gameplay changes, pack asset changes, or performance benchmarks are claimed.
+
 ## 2026-10-15 — Research documentation
 
 - Added `docs/INVESTIGACION_TECNICA_OPTIMIZACION_PBR.md` covering PBR texture sets, MER/emission, entity-emission checks, mobile optimization, performance measurement, environment criteria, and proposed experiments.
