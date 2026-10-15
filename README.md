@@ -37,6 +37,7 @@ See:
 - [Advanced research II: visual architecture and techniques](docs/INVESTIGACION_II_ARQUITECTURA_VISUAL_Y_TECNICAS.md)
 - [Research III: compatibility, Creator Tools and v12 audit](docs/INVESTIGACION_III_COMPATIBILIDAD_CREATOR_TOOLS_Y_V12.md)
 - [Biome catalog and generator architecture proposal](docs/PROPUESTA_CATALOGO_BIOMAS_Y_GENERADOR.md)
+- [Investigation IV: vanilla 26.50 audit and emissive texture patterns](docs/INVESTIGACION_IV_AUDITORIA_VANILLA_26_50.md)
 - [Experiment plan](docs/EXPERIMENTO.md)
 - [Project log](BITACORA.md)
 - [Changelog](CHANGELOG.md)
