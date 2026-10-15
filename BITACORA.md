@@ -2,6 +2,15 @@
 
 Chronological record of meaningful milestones. Exact dates are only recorded when known.
 
+## 2026-10-15 — Investigación técnica y optimización
+
+- Ángel pidió que los hallazgos sobre Hogar Dorado se documenten en GitHub para que Claude pueda revisarlos al regresar y valorar su implementación en la siguiente versión.
+- Se creó `docs/INVESTIGACION_TECNICA_OPTIMIZACION_PBR.md`, con una lista de comprobación para texture sets, mapas MER, emisión en bloques y entidades, optimización móvil, escenas de prueba y recomendaciones para el siguiente ciclo.
+- La investigación cruza la guía de texturas y el resumen de la comunidad de creadores compartidos por Ángel, las referencias BSLB Dreamy Visuals, Solar Shaders Visuals y Dark Fantasy Visuals, y documentación oficial de Microsoft Learn/Mojang.
+- Prioridad sugerida: verificar primero la cadena PBR/emisión con un experimento pequeño de redstone; después probar una criatura candidata; consolidar ambiente por escenas; medir el rendimiento en el iPhone 14 Plus antes de decidir si hacen falta subpacks ligeros.
+- Se clasificaron las conclusiones entre documentación oficial, observaciones de los materiales entregados e hipótesis que aún requieren prueba. No se afirma que se hayan ejecutado pruebas de gameplay ni benchmarks.
+- No se modificó el código ni los archivos del pack; el cambio de este hito es documentación para continuidad entre Ángel, Claude y Atlas.
+
 ## 2026-10 — Initial project and publishing exploration
 
 - Ángel began experimenting with Claude to create a Minecraft Bedrock resource pack with a dreamcore and nostalgia direction.
@@ -18,3 +27,4 @@ Chronological record of meaningful milestones. Exact dates are only recorded whe
 1. Establish the visual identity and decide whether the generated cover concept should be refined into a logo, project cover, or both.
 2. Keep improving and testing the pack before publishing; capture genuine in-game screenshots when ready.
 3. Maintain concise documentation of significant changes, tests, decisions, and economic hypotheses.
+4. Review the technical research in `docs/INVESTIGACION_TECNICA_OPTIMIZACION_PBR.md` before planning the next beta iteration; verify which proposals remain relevant against the current pack files.
