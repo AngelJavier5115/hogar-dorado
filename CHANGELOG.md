@@ -2,9 +2,9 @@
 
 ## 2026-10-14 — Hogar Dorado v18 personal texture restoration
 
-- Based on Ángel's in-game screenshots, restored the lava_still, lava_flow and portal color strips from the user-supplied Bedrock 26.50.0 reference pack; preserved expected frame-strip dimensions and the v17 lava MER maps.
+- Based on Ángel's in-game screenshots, restored the lava_still, lava_flow and portal color strips from the user-supplied Bedrock 26.50.0 reference pack; preserved expected frame-strip dimensions and added reference Texture Sets, MERS maps for lava/portal, and lava normal maps.
 - Added an End-only cool/indigo color grade and reduced End air volumetric fog, leaving overworld and Nether environment profiles untouched in this iteration.
-- Static validation passed: ZIP integrity, 118 valid JSON files, 172 files, correct frame-strip dimensions and matching lava color/MER dimensions.
+- Static validation passed: ZIP integrity, 119 valid JSON files, 176 files, 27 complete Texture Sets, correct frame-strip dimensions, and matching color/material-map dimensions.
 - The .mcpack remains outside GitHub because it contains vanilla reference assets. In-game appearance and iPhone performance are still pending.
 - Report: docs/INVESTIGACION_V18_RESTAURACION_LAVA_PORTAL_END.md.
 
