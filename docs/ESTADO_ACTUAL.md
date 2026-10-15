@@ -11,6 +11,14 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - **Repositorio:** privado, AngelJavier5115/hogar-dorado.
 - **Responsable:** Ángel.
 
+## Estado de corrección v18 (14 de octubre de 2026)
+- Ángel probó la v17 y reportó que lava y portal del Nether seguían viéndose mal; también percibió pérdida del impacto visual del paquete. Las capturas muestran texturas base con bandas diagonales repetitivas.
+- Se generó una única compilación local: hogar-dorado-v18-restaurada-PRUEBAS-PERSONALES.mcpack. El archivo queda fuera de GitHub porque contiene recursos vanilla de referencia.
+- Se restauraron las imágenes de lava quieta, lava en flujo y portal desde el ZIP de referencia 26.50.0 compartido por Ángel. Las dimensiones se mantienen en 16×512, 32×512 y 16×512. Se conservaron los mapas MER de la v17.
+- Para recuperar contraste sin alterar el mundo normal ni el Nether, el End recibió un perfil de gradación frío/índigo y menos niebla volumétrica aérea: fog_start 0.80 y max_density 0.0028.
+- Validación estática: ZIP íntegro, 118 JSON válidos, 172 archivos, tres imágenes restauradas idénticas a la referencia y dimensiones de color/mapa MER coincidentes.
+- **Pendiente:** probar v18 en Bedrock 26.52 con Vibrant Visuals activo y capturar de nuevo lava quieta/en flujo, portal y el End. No se han medido FPS, memoria ni temperatura. Uso personal únicamente; no distribuir.
+
 ## Estado de pruebas v16 (prueba visual de Ángel)
 - Ángel probó la variante equilibrada v16 en Minecraft Bedrock 26.52 y compartió capturas reales.
 - Hallazgos reportados: texturas que pierden detalle, emisión demasiado intensa en algunas superficies/lava y visibilidad subacuática insuficiente; indicó que le gustan los destellos/partículas de las escenas submarinas.
@@ -22,8 +30,7 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - Se generó una sola compilación local: `hogar-dorado-v17-equilibrada-CORREGIDA-PRUEBAS-PERSONALES.mcpack`, fuera de GitHub porque contiene recursos vanilla de referencia.
 - Cambios principales: restauración de rugosidad/metalness desde mapas de referencia; emisiones selectivas y reducidas en minerales; máscaras de emisión espaciales recuperadas para glowstone, sea lantern y shroomlight; emisión PBR de lava apagada en el mapa material para evitar lavar la textura; absorción volumétrica submarina reducida en los 19 perfiles de niebla.
 - Validación estática: ZIP íntegro, 117/117 JSON válidos, 26 Texture Sets, cero referencias faltantes y cero discrepancias dimensionales de mapas.
-- **Pendiente:** Ángel debe importar y probar v17 en Bedrock 26.52 con Vibrant Visuals activo. Verificar textura/animación de lava, color y detalle de minerales, visibilidad mirando desde arriba y desde debajo del agua, y conservar los destellos que le gustaron.
-- **No se ha probado v17 dentro del juego** ni se ha medido rendimiento en el iPhone 14 Plus. La compilación es de uso personal de prueba; no publicar ni vender.
+- **Resultado de prueba visual:** Ángel volvió a probar v17 y confirmó que la lava y el portal del Nether seguían mal; además notó menos impacto visual del esperado. Los problemas llevaron a preparar v18. No se midieron FPS, memoria ni temperatura en el iPhone 14 Plus.
 
 ## Contexto confirmado
 - La intención artística combina nostalgia, dreamcore, atardeceres dorados, noches índigo y profundidad atmosférica.
@@ -106,6 +113,6 @@ Se generó una única compilación de prueba v17 a partir de los errores visuale
 - Decisiones de diseño que alteren de forma relevante los brillos, la atmósfera o el rendimiento objetivo.
 
 ## Registro técnico
-- **Pruebas de gameplay:** Ángel probó la v16 equilibrada y compartió capturas; v17 permanece pendiente.
+- **Pruebas de gameplay:** Ángel probó v16 equilibrada y v17, y compartió capturas; v18 permanece pendiente.
 - **Benchmarks de rendimiento:** no realizados.
-- **Cambio de esta actualización:** se generó v17 como paquete personal local y se documentaron los resultados; no se subió el binario ni se modificó un artefacto público del repositorio.
+- **Cambio de esta actualización:** se generó v18 como paquete personal local y se documentaron las observaciones de v17; los binarios no se subieron al repositorio.
