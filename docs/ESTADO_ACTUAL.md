@@ -31,6 +31,16 @@ Consulta `docs/INVESTIGACION_TECNICA_OPTIMIZACION_PBR.md` para ver:
 - Cinco escenas reproducibles y matriz de experimentos.
 - Fuentes oficiales de Microsoft Learn y Mojang, además de materiales que Ángel ya había aportado.
 
+## Investigación técnica II — arquitectura visual y técnicas avanzadas
+Consulta `docs/INVESTIGACION_II_ARQUITECTURA_VISUAL_Y_TECNICAS.md` para ver:
+- Distinción entre emisión de textura PBR y luz local coloreada mediante `local_lighting.json`.
+- Hallazgos estáticos de BSLB, Solar y Dark Fantasy sobre iluminación local, perfiles por bioma, fallback PBR, subpacks y recursos.
+- Criterios para biomas recientes, keyframes, subsurface scattering y cubemap.
+- Propuesta de validación con Minecraft Creator Tools y futuro validador automatizado.
+- Experimentos priorizados y fuentes oficiales.
+
+El informe incluye recuentos estáticos de los packs, no benchmarks. No se ha ejecutado Minecraft ni se han probado estos cambios en el dispositivo. Verificar las características contra la versión de Bedrock indicada por Ángel (26.52) y la referencia v13 antes de implementarlas.
+
 ## Evidencia y límites
 - La portada generada es una referencia visual, no una captura real del juego.
 - No hay validación completa de la beta en Minecraft registrada aquí.
