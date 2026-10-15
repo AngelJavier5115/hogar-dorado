@@ -53,5 +53,6 @@ Do not commit credentials, API keys, tokens, private personal data, or files tha
 
 ## Latest technical research
 
+- [Investigación v18: restauración de lava, portal y contraste del End](docs/INVESTIGACION_V18_RESTAURACION_LAVA_PORTAL_END.md) — restauración de las tres imágenes animadas desde la referencia aportada y ajuste localizado del End. Validación estática completada; prueba visual pendiente.
 - [Investigación v17: corrección de texturas y agua](docs/INVESTIGACION_V17_CORRECCION_TEXTURAS_AGUA.md) — análisis de capturas reales de la v16 equilibrada, corrección de mapas MER/rugosidad y ajuste experimental de niebla submarina. v17 pasó validación estática; la prueba en juego sigue pendiente.
 - [Investigación v16: variantes de emisión y validación](docs/INVESTIGACION_V16_PRUEBAS_EMISION.md) — v16 personal test variants, static validation, and an in-game A/B protocol. The downloadable mcpack files are kept outside the repository because they contain vanilla assets for personal testing only.
