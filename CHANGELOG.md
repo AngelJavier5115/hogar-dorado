@@ -2,6 +2,12 @@
 
 Meaningful project changes only. Distinguish implemented work from proposals and tests.
 
+## 2026-10-15 — Investigation IV: vanilla resource pack audit
+
+- Added `docs/INVESTIGACION_IV_AUDITORIA_VANILLA_26_50.md` with static inventory of MCB Vanilla Resource Pack 26.50.0, Texture Set/MERS patterns, selective emission examples, biome formats, validator implications, and provenance/licensing cautions.
+- Linked the report from README and updated the current state and project log.
+- No vanilla assets were copied into Hogar Dorado or committed to this repository. No gameplay session or performance benchmark was performed. Findings must be compared against Claude's v13 and tested in Minecraft before implementation.
+
 ## 2026-10-15 — Biome catalog and generator design
 
 - Added `docs/PROPUESTA_CATALOGO_BIOMAS_Y_GENERADOR.md` with a JSON source-of-truth proposal, shared profiles, deterministic generation, validation/test rules, migration phases, and optional GitHub Actions workflow.
