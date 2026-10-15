@@ -57,6 +57,17 @@ Consulta `docs/PROPUESTA_CATALOGO_BIOMAS_Y_GENERADOR.md` para ver una arquitectu
 
 **Estado:** documentación de diseño solamente. El repositorio actualmente contiene documentación, pero todavía no tiene el resource pack fuente ni el script de construcción. Antes de implementar, Claude debe cotejar la propuesta con el script existente y extraer los valores reales de la referencia v13. No reconstruir el catálogo a partir de la paleta de v8.
 
+## Investigación IV — auditoría de Vanilla Resource Pack 26.50.0
+Consulta `docs/INVESTIGACION_IV_AUDITORIA_VANILLA_26_50.md` para hallazgos estáticos sobre:
+- 3.130 Texture Sets y uso de rutas de color PNG/TGA.
+- Emisión selectiva por canal verde en MER/MERS, incluida la comparación de redstone vanilla vs BSLB y mapas de entidades.
+- Texture Sets en bloques, objetos, criaturas, partículas y otros recursos.
+- Cobertura de biomas y diferentes format_version.
+- Diferencias entre la copia v12 y la referencia que Claude debe comprobar en v13.
+- Criterios para Creator Tools, validación de rutas y compatibilidad/licencia.
+
+**Límites:** la fuente aportada es un paquete comunitario vanilla de Bedrock 26.50.0, no el código del motor ni un volcado exacto de la instalación 26.52. No se ejecutó Minecraft ni se midió rendimiento. El repositorio fuente declara que los assets pertenecen a Mojang/Microsoft; no copiar assets binarios al pack final ni al repositorio de Hogar Dorado.
+
 ## Evidencia y límites
 - La portada generada es una referencia visual, no una captura real del juego.
 - No hay validación completa de la beta en Minecraft registrada aquí.
