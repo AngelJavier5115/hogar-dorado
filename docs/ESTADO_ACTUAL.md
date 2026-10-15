@@ -41,6 +41,17 @@ Consulta `docs/INVESTIGACION_II_ARQUITECTURA_VISUAL_Y_TECNICAS.md` para ver:
 
 El informe incluye recuentos estáticos de los packs, no benchmarks. No se ha ejecutado Minecraft ni se han probado estos cambios en el dispositivo. Verificar las características contra la versión de Bedrock indicada por Ángel (26.52) y la referencia v13 antes de implementarlas.
 
+## Investigación III — compatibilidad, Creator Tools y auditoría de v12
+Consulta `docs/INVESTIGACION_III_COMPATIBILIDAD_CREATOR_TOOLS_Y_V12.md` para ver:
+- Auditoría estática del archivo v12 compartido, claramente separada de la referencia v13.
+- Posible mejora del agua con biome_water_color_contribution (Bedrock 1.26.0+) y pruebas sugeridas.
+- Revisión de los perfiles de iluminación/atmósfera a nivel de bioma.
+- Compatibilidad en la pila de recursos: los Texture Sets no se fusionan entre packs.
+- Flujo sugerido para usar Minecraft Creator Tools Inspector en una copia del MCPack.
+- Oportunidades de mantener un catálogo único de biomas y futuras comprobaciones automáticas.
+
+No se ejecutó Minecraft ni Creator Tools desde esta actualización; los resultados de v12 son inventario estático. Contrastar todo con la referencia v13 antes de modificar archivos.
+
 ## Evidencia y límites
 - La portada generada es una referencia visual, no una captura real del juego.
 - No hay validación completa de la beta en Minecraft registrada aquí.
