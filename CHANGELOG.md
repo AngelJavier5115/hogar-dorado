@@ -2,6 +2,12 @@
 
 Meaningful project changes only. Distinguish implemented work from proposals and tests.
 
+## 2026-10-15 — Biome catalog and generator design
+
+- Added `docs/PROPUESTA_CATALOGO_BIOMAS_Y_GENERADOR.md` with a JSON source-of-truth proposal, shared profiles, deterministic generation, validation/test rules, migration phases, and optional GitHub Actions workflow.
+- Updated README, current state, and project log with the design and handoff notes.
+- Explicitly documented that the repository does not yet contain the source resource pack or Claude's build script; generator implementation is intentionally pending comparison against v13. No pack code/assets were changed.
+
 ## 2026-10-15 — Research III: compatibility and Creator Tools
 
 - Added `docs/INVESTIGACION_III_COMPATIBILIDAD_CREATOR_TOOLS_Y_V12.md` with a static audit of the uploaded v12 package, current official guidance for water color contribution and per-biome visual assignments, Texture Set stacking behavior, and a proposed Inspector workflow.
