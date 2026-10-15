@@ -1,3 +1,12 @@
+## 2026-10-15 — Hogar Dorado v19: transparencia, lava +20 % y cielo índigo del End
+
+- Ángel probó v18. Confirmó que la textura/animación de portal y lava ya estaban restauradas, pero pidió más transparencia en el portal, lava un 20 % más brillante y señaló que el cielo del End seguía mal. También advirtió que el pack había perdido su temática.
+- Se volvió a fijar como criterio artístico la raíz «Una nostalgia que parece un sueño»: familiaridad cálida, atardeceres dorados, noches índigo, misterio sutil y preservación de la identidad de Minecraft.
+- Se generó un solo paquete local v19. Portal: alfa ×0.80. Lava quieta y en flujo: RGB ×1.20, sin elevar emisión PBR. End: cielo #7560B8, niebla #302344, fog_start 0.90 y densidad aérea 0.0008.
+- Validación estática: ZIP íntegro, 176 archivos, 119 JSON válidos, tiras de textura conservan dimensiones correctas. No se ha probado v19 en juego ni se midió rendimiento.
+- Paquete: `hogar-dorado-v19-identidad-restaurada-PRUEBAS-PERSONALES.mcpack`; SHA-256 `1530bddfe295169a1b6c032437f90ddd97fc218ce9d1240f0352dbcbf9543a7a`.
+- Informe: `docs/INVESTIGACION_V19_IDENTIDAD_PORTAL_LAVA_END.md`. El binario no se subió a GitHub por contener assets vanilla de referencia.
+
 ## 2026-10-14 — Hogar Dorado v18: restauración de lava/portal y contraste del End
 
 - Ángel probó la v17 y reportó que lava y portal del Nether seguían viéndose mal y que el pack había perdido impacto visual.
