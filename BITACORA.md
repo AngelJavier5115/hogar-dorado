@@ -1,3 +1,14 @@
+## 2026-10-14 — Hogar Dorado v18: restauración de lava/portal y contraste del End
+
+- Ángel probó la v17 y reportó que lava y portal del Nether seguían viéndose mal y que el pack había perdido impacto visual.
+- La auditoría de píxeles confirmó que las texturas base de lava quieta, lava en flujo y portal eran variantes estilizadas de franjas repetitivas, no la textura de referencia Bedrock compartida por Ángel. Sus dimensiones animadas ya eran correctas en v17; el problema dominante era el contenido visual, no la longitud de las tiras.
+- Se creó una única compilación local v18. Se restauraron textures/blocks/lava_still.png, lava_flow.png y portal.png desde la referencia 26.50.0; dimensiones 16×512, 32×512 y 16×512. Los mapas MER de lava permanecen como en v17.
+- Para explorar la pérdida de impacto en el End sin alterar el mundo normal ni el Nether, se añadió gradación hogar:end con un matiz frío/índigo moderado y se redujo la densidad aérea del End de 0.005 a 0.0028, con inicio de niebla de 0.73 a 0.80.
+- Validación estática: ZIP íntegro, 118 JSON válidos, 172 archivos; las tres imágenes son idénticas byte a byte a la referencia aportada y coinciden las dimensiones de las texturas de lava y sus mapas MER.
+- Paquete local: hogar-dorado-v18-restaurada-PRUEBAS-PERSONALES.mcpack; SHA-256 f029d3965b88400d5fcb884581de9fd1d7b577812ac63bbd15c6c2d088c0363d.
+- No se subió el mcpack al repositorio porque contiene assets vanilla de referencia. **Pendiente:** prueba visual de v18 en Minecraft Bedrock 26.52; no se midieron FPS, memoria ni temperatura.
+- Informe: docs/INVESTIGACION_V18_RESTAURACION_LAVA_PORTAL_END.md.
+
 ## 2026-10-14 — Hogar Dorado v17: corrección de texturas y visibilidad del agua
 
 - Ángel probó la v16 equilibrada y compartió capturas reales; señaló pérdida de detalle en texturas y poca visibilidad debajo del agua. Le gustaron los destellos/partículas de las escenas submarinas.
