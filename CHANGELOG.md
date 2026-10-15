@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-15 — Hogar Dorado v16 personal test variants
+
+- Added docs/INVESTIGACION_V16_PRUEBAS_EMISION.md documenting the v14/v15 comparison, two local v16 emission variants, entity Texture Sets/MERS, static validation, and an A/B gameplay test protocol.
+- Generated local test-only mcpack files with fresh UUIDs and manifest version [1, 15, 0]; no vanilla binary assets or pack files were committed.
+- Static checks passed: ZIP integrity, strict JSON parsing, 26 Texture Sets, no missing texture references, and no color/MER dimension mismatches.
+- Gameplay visuals and iPhone performance remain untested; no final-release status is claimed.
+
 Meaningful project changes only. Distinguish implemented work from proposals and tests.
 
 ## 2026-10-15 — Investigation IV: vanilla resource pack audit
