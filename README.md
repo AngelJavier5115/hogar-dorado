@@ -34,6 +34,7 @@ See:
 - [Current state](docs/ESTADO_ACTUAL.md)
 - [Visual identity](docs/IDENTIDAD_VISUAL.md)
 - [Technical research: PBR and mobile optimization](docs/INVESTIGACION_TECNICA_OPTIMIZACION_PBR.md)
+- [Advanced research II: visual architecture and techniques](docs/INVESTIGACION_II_ARQUITECTURA_VISUAL_Y_TECNICAS.md)
 - [Experiment plan](docs/EXPERIMENTO.md)
 - [Project log](BITACORA.md)
 - [Changelog](CHANGELOG.md)
