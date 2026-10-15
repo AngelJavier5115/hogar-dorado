@@ -2,6 +2,12 @@
 
 Meaningful project changes only. Distinguish implemented work from proposals and tests.
 
+## 2026-10-15 — Research III: compatibility and Creator Tools
+
+- Added `docs/INVESTIGACION_III_COMPATIBILIDAD_CREATOR_TOOLS_Y_V12.md` with a static audit of the uploaded v12 package, current official guidance for water color contribution and per-biome visual assignments, Texture Set stacking behavior, and a proposed Inspector workflow.
+- Linked the report from README and updated the current-state and project-log documents.
+- The audited file was v12 only; v13 has not been independently inspected in this task. No pack assets/code were changed, no game session was run, and no benchmark is claimed.
+
 ## 2026-10-15 — Advanced research II
 
 - Added `docs/INVESTIGACION_II_ARQUITECTURA_VISUAL_Y_TECNICAS.md` with static inspection of reference packs and research on colored local lighting, shared biome profiles, PBR fallbacks, keyframes, subsurface scattering, cubemaps, subpacks, validation tools, and proposed experiments.
