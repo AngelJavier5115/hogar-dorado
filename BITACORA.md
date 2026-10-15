@@ -2,6 +2,16 @@
 
 Chronological record of meaningful milestones. Exact dates are only recorded when known.
 
+## 2026-10-15 — Investigación III: compatibilidad, Creator Tools y auditoría de v12
+
+- Se creó `docs/INVESTIGACION_III_COMPATIBILIDAD_CREATOR_TOOLS_Y_V12.md`.
+- Se inspeccionó estáticamente el MCPack v12 adjunto: 97 entradas, 62 archivos client biome, 19 configuraciones de niebla, dos perfiles de color grading y cuatro mapas MER; no se encontraron archivos .texture_set.json ni local_lighting/local_lighting.json en esta copia.
+- Se identificó como experimento prioritario la influencia de los colores de agua por bioma mediante biome_water_color_contribution, que falta en la configuración de agua inspeccionada.
+- Se identificó un riesgo de asignación de atmósfera/iluminación por bioma: los archivos client biome de v12 no contienen los identificadores correspondientes, aunque el pack tiene perfiles globales.
+- Se documentó la regla oficial de apilado PBR: Texture Sets del mismo recurso no se fusionan entre packs y sus imágenes referenciadas deben existir en el mismo pack.
+- Se preparó un flujo de inspección con Minecraft Creator Tools para obtener un reporte base de v12 y luego comparar v13, conservando GitHub como fuente de continuidad.
+- No se modificó ningún recurso del pack, no se ejecutó Minecraft y no se midió rendimiento. Todos los hallazgos sobre v12 deben cotejarse con v13 antes de implementar cambios.
+
 ## 2026-10-15 — Investigación II: arquitectura visual y técnicas avanzadas
 
 - Se añadió `docs/INVESTIGACION_II_ARQUITECTURA_VISUAL_Y_TECNICAS.md` como segunda ronda de investigación independiente.
