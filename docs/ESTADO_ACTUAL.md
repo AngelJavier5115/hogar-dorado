@@ -14,9 +14,9 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 ## Estado de corrección v18 (14 de octubre de 2026)
 - Ángel probó la v17 y reportó que lava y portal del Nether seguían viéndose mal; también percibió pérdida del impacto visual del paquete. Las capturas muestran texturas base con bandas diagonales repetitivas.
 - Se generó una única compilación local: hogar-dorado-v18-restaurada-PRUEBAS-PERSONALES.mcpack. El archivo queda fuera de GitHub porque contiene recursos vanilla de referencia.
-- Se restauraron las imágenes de lava quieta, lava en flujo y portal desde el ZIP de referencia 26.50.0 compartido por Ángel. Las dimensiones se mantienen en 16×512, 32×512 y 16×512. Se conservaron los mapas MER de la v17.
+- Se restauraron las imágenes de lava quieta, lava en flujo y portal desde el ZIP de referencia 26.50.0 compartido por Ángel. Se actualizaron sus tres Texture Sets al formato 1.21.30 de referencia y se incorporaron mapas MERS para lava/portal y mapas normal para ambas texturas de lava. Las dimensiones de color y mapas coinciden; las tiras se mantienen en 16×512, 32×512 y 16×512.
 - Para recuperar contraste sin alterar el mundo normal ni el Nether, el End recibió un perfil de gradación frío/índigo y menos niebla volumétrica aérea: fog_start 0.80 y max_density 0.0028.
-- Validación estática: ZIP íntegro, 118 JSON válidos, 172 archivos, tres imágenes restauradas idénticas a la referencia y dimensiones de color/mapa MER coincidentes.
+- Validación estática: ZIP íntegro, 119 JSON válidos, 176 archivos, 27 Texture Sets con referencias completas y dimensiones de color/mapas coincidentes; las tres imágenes de color restauradas son idénticas a la referencia.
 - **Pendiente:** probar v18 en Bedrock 26.52 con Vibrant Visuals activo y capturar de nuevo lava quieta/en flujo, portal y el End. No se han medido FPS, memoria ni temperatura. Uso personal únicamente; no distribuir.
 
 ## Estado de pruebas v16 (prueba visual de Ángel)
