@@ -11,6 +11,15 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - **Repositorio:** privado, AngelJavier5115/hogar-dorado.
 - **Responsable:** Ángel.
 
+## Estado de corrección v19 (15 de octubre de 2026)
+- Ángel confirmó que v18 restauró la animación y mejoró lava/portal, pero la transparencia del portal necesita ajuste, la lava se ve plana/apagada, el cielo del End sigue gris y la identidad artística se estaba perdiendo.
+- Se generó una única compilación local: `hogar-dorado-v19-identidad-restaurada-PRUEBAS-PERSONALES.mcpack`, fuera de GitHub por contener recursos vanilla de referencia.
+- Portal: alfa de la textura multiplicado por 0.80; animación y dimensiones preservadas.
+- Lava: canales RGB de lava_still y lava_flow multiplicados por 1.20, limitados a 255; emisión PBR sin aumentar para evitar lavar el detalle.
+- End: sky_color #7560B8, fog_color #302344, inicio de niebla 0.90 y densidad volumétrica aérea 0.0008. Es una hipótesis más marcada, no una corrección visual confirmada.
+- Validación estática: ZIP íntegro, 176 archivos, 119 JSON válidos; portal 16×512, lava_still 16×512, lava_flow 32×512. No se han medido FPS, memoria o temperatura.
+- **Pendiente:** probar solo v19 en Bedrock 26.52, comparando portal, lava y la misma vista del End. La raíz artística que guía la decisión sigue siendo «Una nostalgia que parece un sueño»: atardeceres dorados, noches índigo, misterio sutil y fidelidad a la identidad de Minecraft.
+
 ## Estado de corrección v18 (14 de octubre de 2026)
 - Ángel probó la v17 y reportó que lava y portal del Nether seguían viéndose mal; también percibió pérdida del impacto visual del paquete. Las capturas muestran texturas base con bandas diagonales repetitivas.
 - Se generó una única compilación local: hogar-dorado-v18-restaurada-PRUEBAS-PERSONALES.mcpack. El archivo queda fuera de GitHub porque contiene recursos vanilla de referencia.
