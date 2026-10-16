@@ -119,9 +119,9 @@ Consulta `docs/INVESTIGACION_IV_AUDITORIA_VANILLA_26_50.md` para hallazgos está
 Se completó la investigación V sobre Eclipse Shader, la diferencia entre emisión MERS y luz local, una auditoría estática de mapas de mobs/lava y la dirección de color/sombras que buscamos. El informe docs/INVESTIGACION_V_ECLIPSE_EMISION_DIRECCION_ARTISTICA.md registra fuentes, conteos, límites y experimentos propuestos. No se generó un nuevo paquete: las próximas máscaras y cambios de lava deben probarse por separado. La v13 continúa congelada como referencia histórica.
 
 ## Próximas tres tareas
-1. Probar únicamente v17 en el iPhone 14 Plus y repetir las escenas de lava, minerales y agua documentadas en el informe.
-2. Registrar las capturas comparables y precisar cualquier textura que siga fallando antes de hacer otra modificación.
-3. Después de validar la apariencia, medir FPS/temperatura y contrastar los cambios con la referencia histórica v13 antes de considerar publicar.
+1. En una copia personal, probar por separado la máscara emisiva de los ojos del gólem, piglin zombificado y Enderman; no combinar los tres cambios hasta comparar capturas.
+2. Preparar una prueba independiente para lava, con contraste de costras/grietas y máscara MERS; no volver a subir el RGB global como sustituto de la emisión.
+3. Después de aprobar visualmente cada efecto en el iPhone 14 Plus, evaluar rendimiento y contrastar el cambio con la referencia histórica v13. No publicar recursos vanilla ni activos de terceros sin permiso.
 
 ## Decisiones que requieren aprobación de Ángel
 - Aprobación final del logotipo y la portada.
@@ -131,6 +131,6 @@ Se completó la investigación V sobre Eclipse Shader, la diferencia entre emisi
 - Decisiones de diseño que alteren de forma relevante los brillos, la atmósfera o el rendimiento objetivo.
 
 ## Registro técnico
-- **Pruebas de gameplay:** Ángel probó v16 equilibrada y v17, y compartió capturas; v18 permanece pendiente.
+- **Pruebas de gameplay:** Ángel probó v16 equilibrada, v17 y v19, y compartió capturas/comentarios; v19 no fue aprobada visualmente. No hay prueba en juego de las nuevas propuestas de Investigación V.
 - **Benchmarks de rendimiento:** no realizados.
 - **Cambio de esta actualización:** se generó v18 como paquete personal local y se documentaron las observaciones de v17; los binarios no se subieron al repositorio.
