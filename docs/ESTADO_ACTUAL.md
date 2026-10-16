@@ -11,6 +11,24 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - **Repositorio:** privado, AngelJavier5115/hogar-dorado.
 - **Responsable:** Ángel.
 
+## Investigación VI — packs Bedrock, Actions & Stuff y Minecraft Creator Tools (15–16 de octubre de 2026)
+
+- Se auditaron estáticamente los ocho archivos de packs aportados por Ángel. El archivo llamado “Vivencia” es internamente **Vibrance**; “Visuales de Fantasía Oscura 2.0 (resources) 2” es **Chroma Visuals 1.1**, con modo A&S Compatibility; el otro archivo Fantasía Oscura es **Dark Visuals**; Prizma también contiene un skin pack separado de 11 skins.
+- Se documentaron inventarios, tamaños descomprimidos, subpacks, fuentes relevantes y una matriz de pruebas en [Investigación VI](INVESTIGACION_VI_PACKS_BEDROCK_COMPATIBILIDAD_ACTIONS_STUFF_MCTOOLS.md).
+- Hallazgos útiles: Actions & Stuff 1.12 incluye SP0 “Custom Experience — Compatible with other texture packs”, SP1 “Vanilla Experience” y SP2 “Full Experience”. Chroma tiene un modo A&S separado e indica que debe ir encima de A&S para esa variante. Vibrance LOW se describe como iluminación con texturas vanilla para colocarse sobre otro pack. Prizma VANILLA y Dark Visuals Classic son candidatos de coexistencia antes que variantes con modelos/animaciones.
+- Esto respalda una dirección de diseño, no demuestra aún el tamaño de la demanda comunitaria. No se ha validado ninguna combinación de estos packs en el juego.
+- **Primera ruta del Inspector:** comenzar con Lush Visuals (≈1.9 MB descomprimido), después Chroma (≈3.7 MB) y Luminous Dreams (≈7.1 MB); posponer Vibrance (≈122.4 MB) y Dark Visuals (≈157.7 MB) para evitar empezar con archivos grandes en un móvil.
+- No se ha ejecutado el Inspector web en esta sesión. Pendiente que Ángel abra https://mctools.dev, procese el primer pack y comparta los avisos/resultados. La validación estática del ZIP no sustituye al Inspector ni a la prueba dentro de Minecraft.
+
+## Estado de experimento local v20-A — ojos del gólem
+
+- Se generó una compilación personal, fuera del repositorio porque incluye recursos vanilla de referencia: `hogar-dorado-v20-A-golem-ojos-PRUEBAS-PERSONALES.mcpack`.
+- Único cambio intencional frente a v19: dos píxeles emisivos pequeños en los iris rojos de la textura del gólem, mediante `textures/entity/iron_golem_mers.tga` y un Texture Set específico; no se cambiaron mapas de piglins, Enderman, lava ni perfiles atmosféricos.
+- Versión del manifiesto: 1.20.0. UUIDs nuevos respecto a las versiones anteriores.
+- **Validación estática:** ZIP íntegro, 178 archivos, 120 JSON válidos, TGA de MERS en 128×128, SHA-256 `00de46bc9fa3ca216e6e6138dc352c8e8d3b9fa349979ff79d417d7025c14a33`.
+- **Pendiente:** validar el archivo con Minecraft Creator Tools Inspector y luego probarlo en Minecraft Bedrock 26.52. No hay validación visual, medida de FPS, memoria, temperatura o batería. No es un cambio aceptado hasta que Ángel observe el resultado en el iPhone.
+- El siguiente pack no modificará piglins ni Enderman todavía: primero hay que confirmar la convención y el resultado de esta máscara aislada.
+
 ## Investigación V — Eclipse Shader y emisión selectiva (15 de octubre de 2026)
 
 - Ángel reportó después de probar v19 que persistían los problemas visuales y que la lava seguía plana/apagada; también señaló que el Blaze se percibía demasiado brillante. La v19 no se considera una corrección aceptada.
@@ -116,12 +134,12 @@ Consulta `docs/INVESTIGACION_IV_AUDITORIA_VANILLA_26_50.md` para hallazgos está
 - La única prueba visual de gameplay registrada en este ciclo corresponde a v16; no se midieron FPS/temperatura ni se probó v17.
 
 ## Último hito
-Se completó la investigación V sobre Eclipse Shader, la diferencia entre emisión MERS y luz local, una auditoría estática de mapas de mobs/lava y la dirección de color/sombras que buscamos. El informe docs/INVESTIGACION_V_ECLIPSE_EMISION_DIRECCION_ARTISTICA.md registra fuentes, conteos, límites y experimentos propuestos. No se generó un nuevo paquete: las próximas máscaras y cambios de lava deben probarse por separado. La v13 continúa congelada como referencia histórica.
+Se documentó Investigación VI sobre ocho packs Bedrock, modos de compatibilidad de Actions & Stuff y el flujo propuesto de Inspector. Además, se creó el paquete de prueba personal v20-A, que solo agrega emisión moderada a dos píxeles de los ojos del gólem y pasó validación estática de ZIP/JSON. La validación de Creator Tools y el resultado dentro del iPhone siguen pendientes. La v13 continúa congelada como referencia histórica.
 
 ## Próximas tres tareas
-1. En una copia personal, probar por separado la máscara emisiva de los ojos del gólem, piglin zombificado y Enderman; no combinar los tres cambios hasta comparar capturas.
-2. Preparar una prueba independiente para lava, con contraste de costras/grietas y máscara MERS; no volver a subir el RGB global como sustituto de la emisión.
-3. Después de aprobar visualmente cada efecto en el iPhone 14 Plus, evaluar rendimiento y contrastar el cambio con la referencia histórica v13. No publicar recursos vanilla ni activos de terceros sin permiso.
+1. Abrir https://mctools.dev y pasar Lush Visuals por Inspector como primera prueba; guardar o fotografiar los resultados antes de cambiar ajustes. Después probar v20-A de la misma forma.
+2. Importar v20-A en un mundo de prueba en Minecraft Bedrock 26.52, dejando solo las capas de recursos controladas; comparar los ojos del gólem contra v19 y la referencia v13 congelada.
+3. Solo después de revisar resultados, hacer el test aislado de piglin zombificado y un experimento independiente para lava con máscara MERS y contraste de costras/grietas. No publicar recursos vanilla ni activos de terceros sin permiso.
 
 ## Decisiones que requieren aprobación de Ángel
 - Aprobación final del logotipo y la portada.
@@ -131,6 +149,6 @@ Se completó la investigación V sobre Eclipse Shader, la diferencia entre emisi
 - Decisiones de diseño que alteren de forma relevante los brillos, la atmósfera o el rendimiento objetivo.
 
 ## Registro técnico
-- **Pruebas de gameplay:** Ángel probó v16 equilibrada, v17 y v19, y compartió capturas/comentarios; v19 no fue aprobada visualmente. No hay prueba en juego de las nuevas propuestas de Investigación V.
+- **Pruebas de gameplay:** Ángel probó v16 equilibrada, v17 y v19, y compartió comentarios/capturas; v19 no fue aprobada visualmente. v20-A estática pasa ZIP/JSON, pero no ha sido probada en Creator Tools ni dentro de Minecraft.
 - **Benchmarks de rendimiento:** no realizados.
 - **Cambio de esta actualización:** se generó v18 como paquete personal local y se documentaron las observaciones de v17; los binarios no se subieron al repositorio.
