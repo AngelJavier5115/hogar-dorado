@@ -30,6 +30,16 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - **Inspector (15 de octubre de 2026):** con el alias de nombre corto `HD-v20A.mcpack`, 0 errores, 21 advertencias, 40 pruebas exitosas, 0 fallidas y 14 no aplicables. El único fallo del informe anterior (PATHLENGTH, 20 rutas) desapareció sin cambiar el contenido del paquete. No hay validación visual, medida de FPS, memoria, temperatura o batería. No es un cambio aceptado hasta que Ángel observe el resultado en el iPhone.
 - El siguiente pack no modificará piglins ni Enderman todavía: primero hay que confirmar la convención y el resultado de esta máscara aislada.
 
+## Hallazgo de prueba visual v20-A — textura de entidad faltante (15 de octubre de 2026)
+
+- Ángel importó y probó `HD-v20A.mcpack` en Minecraft Bedrock 26.52 y compartió una captura de un objeto/entidad con el patrón magenta y negro que Minecraft muestra cuando una textura no se resuelve correctamente.
+- Ángel aclaró que **no es el Enderman**. La identidad exacta del objeto no se ha confirmado y no debe asumirse a partir de la silueta.
+- Es un fallo de renderizado/resolución de textura en tiempo de ejecución, no un problema de brillo. Por tanto, v20-A no queda aprobada visualmente aunque Creator Tools Inspector haya registrado 0 errores y 0 pruebas fallidas.
+- Comparación estática directa de los paquetes v19 y v20-A: v20-A añade `textures/entity/iron_golem.texture_set.json` y `textures/entity/iron_golem_mers.tga`, además de cambiar `manifest.json`; no añade modelos ni definiciones de entidades. El delta nuevo está dirigido al gólem y no explica directamente el objeto de la captura. El origen podría estar en recursos heredados de v19 o en un conflicto entre los packs activos, pero no está demostrado.
+- No se conoce todavía el orden/pila exacta de recursos usada en esta captura. La validación estática del Inspector no garantiza la resolución correcta de todas las texturas durante el juego.
+
+**Próximo diagnóstico controlado:** en una copia del mundo, mantener todos los demás packs y su orden igual y desactivar solo Hogar Dorado v20-A; observar el mismo objeto. Si el error sigue, revisar los otros packs o el recurso propio de la entidad. Si desaparece, reactivar Hogar Dorado y comparar con v19/v13 mediante pruebas de una sola variable. Registrar la pila de recursos y una captura equivalente. No añadir más cambios de emisión hasta aislar esta avería.
+
 ## Investigación V — Eclipse Shader y emisión selectiva (15 de octubre de 2026)
 
 - Ángel reportó después de probar v19 que persistían los problemas visuales y que la lava seguía plana/apagada; también señaló que el Blaze se percibía demasiado brillante. La v19 no se considera una corrección aceptada.
@@ -138,9 +148,9 @@ Consulta `docs/INVESTIGACION_IV_AUDITORIA_VANILLA_26_50.md` para hallazgos está
 Se documentó Investigación VI sobre ocho packs Bedrock, modos de compatibilidad de Actions & Stuff y el flujo de Inspector. El paquete personal v20-A pasó 40 pruebas aplicables del Inspector cuando se validó con el nombre corto `HD-v20A.mcpack` (0 errores, 21 advertencias, 0 fallos). Sigue pendiente comprobar el aspecto dentro del iPhone. La v13 continúa congelada como referencia histórica.
 
 ## Próximas tres tareas
-1. Importar v20-A en un mundo de prueba de Bedrock 26.52 y comparar los ojos del gólem contra v19 y la referencia v13 congelada; registrar capturas, orden de packs y condiciones de iluminación.
-2. Revisar las 21 advertencias solo si hay evidencia adicional o incompatibilidad reproducible; no quitar propiedades respaldadas por la documentación oficial únicamente para silenciar al Inspector.
-3. Solo después del resultado visual, preparar el experimento aislado del piglin zombificado y otro experimento independiente para lava con máscara MERS y contraste costra/grieta. No publicar recursos vanilla ni activos de terceros sin permiso.
+1. Aislar primero la textura magenta/negra con una prueba de control que desactive solo Hogar Dorado v20-A y mantenga iguales los demás packs y su orden.
+2. Cuando se localice el origen, corregir y volver a probar; después comparar los ojos del gólem frente a v19 y la referencia v13 congelada, con capturas y condiciones idénticas.
+3. Solo después de resolver y documentar estos resultados, preparar el experimento aislado del piglin zombificado y otro independiente para lava. No publicar recursos vanilla ni activos de terceros sin permiso.
 
 ## Decisiones que requieren aprobación de Ángel
 - Aprobación final del logotipo y la portada.
