@@ -327,3 +327,25 @@ No se deben “arreglar” a ciegas las 21 advertencias de v20-A: primero se con
 2. Comparar la misma escena con v20-A, v19 y la referencia histórica v13 sin modificar la referencia; registrar packs activos, orden, bioma, hora y capturas.
 3. Evaluar si los ojos se perciben sutilmente emisivos, si el modelo conserva el aspecto original y si la diferencia resulta visible sin exageración.
 4. No empezar aún los cambios de piglin zombificado o lava; esperar la evidencia visual de esta máscara aislada.
+
+
+## 10.6 Hallazgo en Minecraft tras Inspector — textura magenta/negra (15 de octubre de 2026)
+
+Ángel importó `HD-v20A.mcpack` en Minecraft Bedrock 26.52 y compartió una captura con un objeto o entidad que aparece con grandes áreas magenta y negras, el patrón de textura de error que el juego presenta cuando un recurso de textura no se resuelve correctamente. Ángel confirmó que **no es el Enderman**. La identidad exacta del objeto no queda verificada y no se debe adivinar por su silueta.
+
+### Hechos confirmados
+
+- Es evidencia de un problema de recursos durante la ejecución. No es una observación de emisión demasiado fuerte ni de color grading.
+- Que Inspector reportara 0 errores y 0 pruebas fallidas no impide que el juego muestre una textura sin resolver. La prueba estática y la prueba de renderizado se deben conservar como controles independientes.
+- La comparación binaria de los MCPack muestra que v20-A, frente a v19, solo añade `textures/entity/iron_golem.texture_set.json` y `textures/entity/iron_golem_mers.tga`, además de modificar el manifiesto. No añade archivos de geometría ni definiciones de entidad. El nuevo delta no apunta directamente a la entidad de la captura.
+- No se dispone todavía de la pila/orden exacto de packs activo en la captura. Como v20-A hereda la mayoría de los recursos de v19, no puede descartarse ni una colisión heredada de Hogar Dorado ni un conflicto con otro pack.
+
+### Diagnóstico aislado — sin cambiar varias variables
+
+1. En una **copia del mundo**, mantén todos los demás packs y el orden exactamente igual y desactiva solo Hogar Dorado v20-A. Vuelve a observar el mismo objeto en el mismo lugar.
+2. Si la textura magenta/negra sigue apareciendo, examina el pack que define o texturiza esa entidad y el resto de la pila. Si desaparece, reactiva Hogar Dorado y compara de forma controlada con v19; no supongas que el cambio nuevo de los ojos del gólem causó el fallo.
+3. Registra qué packs y subpacks están activos, su prioridad, versión de Minecraft y una captura antes/después. Si es posible, identifica la entidad, pero la prueba de aislamiento puede empezar sin ese dato.
+4. No cambies lava ni más mapas emisivos hasta localizar esta incidencia; cada nuevo cambio dificultaría atribuir el origen.
+
+**Estado:** error visual reproducido por captura; causa raíz sin determinar. v20-A no se considera visualmente aceptada. La identidad del objeto sigue expresamente sin confirmar.
+
