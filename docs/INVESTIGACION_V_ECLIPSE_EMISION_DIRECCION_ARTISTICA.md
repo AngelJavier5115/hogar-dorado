@@ -115,6 +115,29 @@ Se inspeccionó el canal verde de archivos *_mers.tga del paquete de recursos Be
 | Gólem de cobre: cuerpo | copper_golem_mers.tga, 64×64 | 0/4096 | 0 | Sin emisión en el mapa principal |
 | Strider | strider_mers.tga, 64×128 | 0/8192 | 0 | Sin emisión en el mapa base |
 
+### Auditoría complementaria: canal alfa en texturas TGA
+
+La documentación oficial de conversión de packs de Java a Bedrock indica una segunda convención: algunas texturas TGA usan su canal alfa para marcar píxeles emisivos, con ejemplos explícitos como ojos de araña, Enderman y Phantom. En esos casos hay que revisar el color/TGA, además del MERS. El canal alfa no se debe interpretar universalmente como emisión: en otros archivos representa transparencia; hay que validar cada textura y su convención.
+
+Al contrastar posición por posición las texturas de color TGA con sus mapas MERS en la referencia 26.50.0, se observó lo siguiente:
+
+| Textura | Píxeles con alfa parcial | Píxeles con G MERS > 0 | Coincidencia espacial observada |
+|---|---:|---:|---|
+| Blaze | 464 | 464 | Los mismos 464 píxeles |
+| Enderman | 6 píxeles con alfa parcial (aparte de zonas transparentes) | 6 | Los mismos 6 píxeles |
+| Spider | 20 | 20 | Los mismos 20 píxeles |
+| Cave Spider | 20 | 20 | Los mismos 20 píxeles |
+| Glow Squid | 1208 | 1204 | 1204 posiciones coinciden |
+| Magma Cube | 1010 | 260 | Los 260 píxeles emisivos coinciden con parte del alfa parcial |
+
+Esto refuerza tres decisiones prácticas:
+
+- **Enderman y arañas ya tienen localizados acentos emisivos** en la referencia. La primera prueba no debe pintar ojos a ciegas: debe comprobar su brillo real en juego y ajustar de forma contenida el mapa/convención que realmente utiliza el motor.
+- **Blaze también tiene una región emisiva ya localizada**, aunque el verde MERS solo alcanza 15/255 en sus píxeles positivos. Su exceso visual no queda explicado por ese número por sí solo; antes de editar hay que aislar cómo se está interpretando la TGA, su máscara, el ajuste emisivo y el postprocesado.
+- **Piglin zombificado y gólem de hierro son casos adecuados para una máscara MERS nueva**, porque sus mapas MERS principales están a cero y sus texturas de color principales son PNG en el paquete examinado. La máscara se debe dibujar sobre coordenadas UV comprobadas, no adivinarse desde una vista renderizada.
+
+La coincidencia de píxeles se calculó estáticamente entre archivos del paquete aportado. Demuestra coincidencia de coordenadas; por sí sola no identifica qué etapa exacta de renderizado causó un brillo observado ni reemplaza la prueba en Bedrock 26.52.
+
 ### Conclusiones de la comparación
 
 Estos valores muestran las máscaras del recurso examinado, no una lista completa de cómo se renderizan todas las criaturas. Algunas usan varias texturas, capas o variantes, y el motor puede combinar efectos.
@@ -169,7 +192,7 @@ Gólem y piglins: el jugador debe percibir un punto brillante al mirar sin senti
 
 ### Orden recomendado
 
-1. Primera prueba: ojos del gólem, piglin zombificado y Enderman.
+1. Primera prueba: crear una máscara MERS pequeña para el gólem y el piglin zombificado; para Enderman, medir primero y ajustar el acento que ya aparece marcado, sin duplicarlo.
 2. Segunda: Magma Cube, aprovechando y ajustando su máscara parcial.
 3. Tercera: Blaze, después de identificar qué capa produce el exceso.
 4. Cuarta: Glow Squid, Allay, Vex y Warden por separado.
@@ -217,9 +240,9 @@ Se mantiene la regla: **una variable por experimento**, escena fija y captura co
 
 | ID | Variable única | Escena | Criterio de aceptación |
 |---|---|---|---|
-| E1 | Máscara de ojos del gólem en mapa propio | Gólem sobre suelo gris neutro, día/noche | Ojos distinguibles; cuerpo y suelo no parecen iluminados |
-| E2 | Máscara de ojos del piglin zombificado | Interior oscuro y Nether | Rojo visible, no inunda la cara |
-| E3 | Máscara de ojos del Enderman | Noche con fondos claros y oscuros | Ojos identificables; cuerpo se mantiene oscuro |
+| E1 | Máscara MERS de ojos del gólem | Gólem sobre suelo gris neutro, día/noche | Ojos distinguibles; cuerpo y suelo no parecen iluminados |
+| E2 | Máscara MERS de ojos del piglin zombificado | Interior oscuro y Nether | Rojo visible, no inunda la cara |
+| E3 | Intensidad/convención emisiva existente del Enderman | Noche con fondos claros y oscuros | Ojos identificables; cuerpo se mantiene oscuro; no se duplica la máscara TGA/MERS |
 | E4 | Emisión/contraste del Magma Cube | Cueva con piedra próxima | Capas y núcleo legibles; bordes no quemados |
 | E5 | Diagnóstico de capas del Blaze | Fondo oscuro y medio tono | Menos aspecto de “todo brilla” sin perder identidad de la llama |
 | E6 | Máscara MERS de lava, sin aumentar RGB global | Lava quieta y corriente | Grietas calientes y costras oscuras; tiras/animación intactas |
@@ -264,6 +287,6 @@ El RGB ×1.20 de lava probado en v19 fue un ajuste de color, no de emisión PBR.
 
 ## Decisión propuesta
 
-No crear aún una versión nueva que mezcle lava, End y mobs. Primero implementar en una copia de prueba solo tres máscaras diminutas —gólem, piglin zombificado y Enderman— y ejecutar E1–E3. En paralelo, preparar una prueba independiente de lava con MERS y textura de color contrastada. Solo combinar cambios que hayan sido aceptados visualmente en el iPhone.
+No crear aún una versión nueva que mezcle lava, End y mobs. Primero probar en una copia personal: crear dos máscaras diminutas nuevas —gólem y piglin zombificado— y ajustar por separado la emisión ya marcada en Enderman; ejecutar E1–E3. En paralelo, preparar una prueba independiente de lava con MERS y textura de color contrastada. Solo combinar cambios que hayan sido aceptados visualmente en el iPhone.
 
 La raíz artística no cambia: **“Una nostalgia que parece un sueño”**. La prioridad es una atmósfera armónica y legible, no que todo brille más.
