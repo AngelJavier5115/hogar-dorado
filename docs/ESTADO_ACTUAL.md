@@ -17,7 +17,7 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - Se creó [Investigación V](INVESTIGACION_V_ECLIPSE_EMISION_DIRECCION_ARTISTICA.md), que audita el repositorio Eclipse Shader, su código relevante y licencia, y propone un catálogo de emisión selectiva para mobs y una dirección de color/sombra/atmósfera.
 - En la inspección estática del paquete de referencia 26.50.0, los mapas MERS principales de gólem de hierro, piglin y piglin zombificado tienen el canal verde emisivo a cero. Los mapas de lava quieta/en flujo también tienen el canal verde a cero; elevar el RGB no añade emisión PBR.
 - Eclipse contiene 36 fuentes Photonics en el archivo inspeccionado y son fuentes para bloques, no luces configuradas para mobs. La clasificación de entidades en entity.properties es de dispersión bajo la superficie y no un catálogo de emisión.
-- Próximo enfoque recomendado: no generar todavía una nueva compilación combinada. Probar máscaras pequeñas de ojos de gólem, piglin zombificado y Enderman por separado; experimentar con la lava en un cambio independiente.
+- Próximo enfoque recomendado: no generar todavía una nueva compilación combinada. Crear máscaras MERS pequeñas para ojos del gólem y piglin zombificado; revisar la emisión ya localizada en la TGA/MERS del Enderman sin duplicarla; experimentar con lava en un cambio independiente.
 - **Límites:** auditoría de repositorio y archivos estáticos; no se ejecutó el juego ni se han validado las nuevas propuestas en el iPhone. v13 sigue congelada como referencia histórica.
 
 ## Estado de corrección v19 (15 de octubre de 2026)
