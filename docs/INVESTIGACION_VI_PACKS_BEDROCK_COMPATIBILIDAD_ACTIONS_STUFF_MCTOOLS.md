@@ -338,13 +338,13 @@ No se deben “arreglar” a ciegas las 21 advertencias de v20-A: primero se con
 - Es evidencia de un problema de recursos durante la ejecución. No es una observación de emisión demasiado fuerte ni de color grading.
 - Que Inspector reportara 0 errores y 0 pruebas fallidas no impide que el juego muestre una textura sin resolver. La prueba estática y la prueba de renderizado se deben conservar como controles independientes.
 - La comparación binaria de los MCPack muestra que v20-A, frente a v19, solo añade `textures/entity/iron_golem.texture_set.json` y `textures/entity/iron_golem_mers.tga`, además de modificar el manifiesto. No añade archivos de geometría ni definiciones de entidad. El nuevo delta no apunta directamente a la entidad de la captura.
-- No se dispone todavía de la pila/orden exacto de packs activo en la captura. Como v20-A hereda la mayoría de los recursos de v19, no puede descartarse ni una colisión heredada de Hogar Dorado ni un conflicto con otro pack.
+- Ángel confirmó que Hogar Dorado v20-A era el único pack activo durante la captura. Por tanto, no hay base para atribuir el fallo a un conflicto con otro pack activo. Como v20-A hereda la mayoría de los recursos de v19, la investigación debe centrarse primero en recursos propios/heredados de Hogar Dorado y en sus referencias de textura.
 
 ### Diagnóstico aislado — sin cambiar varias variables
 
-1. En una **copia del mundo**, mantén todos los demás packs y el orden exactamente igual y desactiva solo Hogar Dorado v20-A. Vuelve a observar el mismo objeto en el mismo lugar.
-2. Si la textura magenta/negra sigue apareciendo, examina el pack que define o texturiza esa entidad y el resto de la pila. Si desaparece, reactiva Hogar Dorado y compara de forma controlada con v19; no supongas que el cambio nuevo de los ojos del gólem causó el fallo.
-3. Registra qué packs y subpacks están activos, su prioridad, versión de Minecraft y una captura antes/después. Si es posible, identifica la entidad, pero la prueba de aislamiento puede empezar sin ese dato.
+1. En una **copia del mundo**, conserva el dato de que v20-A fue el único pack activo. Compara el mismo lugar/objeto con Hogar Dorado desactivado (referencia vanilla) y después activado, sin cambiar ninguna otra variable.
+2. Si el fallo aparece solo con Hogar Dorado, revisa recursos heredados de v19 y referencias/rutas de texturas. No supongas que el cambio nuevo de los ojos del gólem causó el fallo.
+3. Registra versión de Minecraft, estado de Vibrant Visuals, mundo/escena y una captura antes/después. La identidad de la entidad puede investigarse después; no es requisito para empezar a aislar el fallo.
 4. No cambies lava ni más mapas emisivos hasta localizar esta incidencia; cada nuevo cambio dificultaría atribuir el origen.
 
 **Estado:** error visual reproducido por captura; causa raíz sin determinar. v20-A no se considera visualmente aceptada. La identidad del objeto sigue expresamente sin confirmar.
