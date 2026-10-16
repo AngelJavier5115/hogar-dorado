@@ -246,3 +246,55 @@ Validación estática comprobada localmente:
 Este control estático no valida las reglas de Creator Tools ni el aspecto real en juego. En la primera sesión con el sitio conviene validar primero **Lush Visuals** como muestra pequeña del material aportado y después v20-A. Para cada uno: abrir mctools.dev, añadir/abrir el archivo MCPack, entrar en Inspector, ampliar el conjunto desde Focused a Full/Raw si los resultados parecen incompletos, exportar CSV/HTML si aparece la opción y anotar errores frente a avisos/recomendaciones. La guía oficial confirma que la validación del sitio admite MCPack y que los archivos se procesan localmente en el navegador: https://learn.microsoft.com/es-mx/minecraft/creator/documents/mctoolsoverview?view=minecraft-bedrock-experimental.
 
 A día de esta actualización no se ha ejecutado Inspector ni se ha probado v20-A dentro de Minecraft. No registrar un resultado como aprobado hasta recibir el informe y las capturas de la prueba real.
+
+
+## 10. Resultados reales del Inspector — 15 de octubre de 2026
+
+Ángel compartió los informes HTML de **Lush Visuals** y **Hogar Dorado v20-A**. A partir de aquí el estado cambia de “Inspector pendiente” a “primera ronda ejecutada”; estos informes son validaciones estáticas, no pruebas de renderizado dentro de Minecraft.
+
+### 10.1 Lush Visuals — reporte
+
+- Tamaño descomprimido: 1,876,410 bytes (≈1.79 MiB decimal/≈1.79 MiB); 1,853 archivos, 897 texturas, 88 archivos de bioma, 22 nieblas, 7 configuraciones de iluminación y 776 Texture Sets.
+- Recuento de Inspector: 683 errores, 41 advertencias; 39 comprobaciones exitosas y 4 comprobaciones fallidas.
+- Las cuatro comprobaciones fallidas se distribuyen así:
+
+| Regla | Conteo | Interpretación |
+|---|---:|---|
+| NOBOM — Byte Order Marks | 551 | Muchos JSON, especialmente Texture Sets, contienen BOM. El parser de JSON reporta cero errores de sintaxis, pero la regla NOBOM falla y los archivos no siguen la regla estricta del Inspector. |
+| TEXTURELIST | 103 | El validador informa que imágenes asociadas con Texture Sets no deben estar registradas como entradas en `texture_list.json`. No significa que debamos borrar los mapas MERS: el problema indicado está en la lista. |
+| PATHLENGTH | 27 | Las rutas completas del informe incluyen el directorio raíz derivado del nombre largo del archivo importado (“Visuales exuberantes (resources)(1)”). Hay que repetir con un nombre corto antes de atribuir todos estos errores al contenido interno del pack. |
+| UNKJSON | 2 | Uno es `local_lighting/local_lighting.json`, ruta reconocida por la documentación oficial de Vibrant Visuals; el otro es `pdr/global.json`, que no coincide con la ruta oficial `pbr/global.json` y parece un posible error tipográfico. |
+
+- Advertencias: 16 sobre la propiedad `weather` dentro de `volumetric.density`; 7 sobre valores MERS de tipo array; 13 archivos de textura sin referencias detectadas; 4 advertencias acerca de texturas de tablas de flechas/forja que podrían verse afectadas en una actualización futura; y 1 aviso de presupuesto de mip más alto en `textures/caustics.png` (el reporte indica 6.3 MB frente a un presupuesto de 4 MiB).
+
+**Contraste con documentación oficial actual:** los documentos oficiales de niebla admiten `weather` dentro de `minecraft:fog_settings.volumetric.density`; las guías de Texture Sets admiten un array de tres valores numéricos para MER uniforme; y Microsoft documenta `local_lighting/local_lighting.json`. Por tanto, las advertencias/falla de “JSON desconocido” asociadas con esos elementos requieren distinguir entre el esquema de validación de la herramienta y las funciones soportadas por la versión objetivo. Las dos primeras son indicios de validación desactualizada, no razones suficientes para borrar propiedades válidas de los archivos. El caso de `pdr/global.json` sí merece revisión de la ruta.
+
+Fuentes: https://learn.microsoft.com/en-us/minecraft/creator/reference/content/fogsreference/fogs?view=minecraft-bedrock-stable ; https://learn.microsoft.com/en-us/minecraft/creator/documents/vibrantvisuals/lightingcustomization?view=minecraft-bedrock-stable ; https://learn.microsoft.com/en-us/minecraft/creator/documents/backups/texturesetsreference/texturesetsconcepts/texturesetsintroduction
+
+### 10.2 Hogar Dorado v20-A — reporte
+
+- Tamaño descomprimido: 459,602 bytes; 176 archivos y 57 texturas.
+- Capacidad `pbr` detectada; un manifiesto de resource pack; cero errores de parseo JSON, cero errores de manifiesto, cero dependencias faltantes y cero errores de procesamiento interno reportados.
+- Recuento de Inspector: 20 errores, 21 advertencias; 39 comprobaciones exitosas, 1 comprobación fallida y 14 no aplicables.
+- El único test fallido es `PATHLENGTH`, con 20 rutas. En el campo absoluto, el Inspector antepone `/hogar-dorado-v20-A-golem-ojos-PRUEBAS-PERSONALES/` al recurso y el total supera 100 caracteres. La longitud se ve fuertemente influida por el nombre largo con que se cargó el archivo; la ruta interna relativa es más corta.
+- Las 21 advertencias son: 19 instancias de `weather` en `volumetric.density`, 1 aviso sobre el objeto `subpacks[0]` del manifiesto y 1 sobre el formato de keyframes en `lighting/global.json`.
+
+**Contraste con documentación oficial actual:**
+- `weather` dentro de la densidad volumétrica aparece en el esquema oficial de niebla.
+- El manifiesto de subpacks documentado por Microsoft utiliza objetos con campos `folder_name`, `name` y `memory_tier`; por tanto, el aviso que espera una cadena en vez de un objeto no coincide con el formato oficial de subpacks.
+- `lighting/global.json` tiene `format_version: 1.26.0`; la documentación oficial indica que `sky.intensity` admite keyframes a partir de 1.26.0, así que el aviso necesita clasificarse como una discrepancia del validador frente al esquema actual.
+
+Fuentes: https://learn.microsoft.com/en-us/minecraft/creator/documents/buildingsubpacks?view=minecraft-bedrock-stable ; https://learn.microsoft.com/en-us/minecraft/creator/documents/vibrantvisuals/lightingcustomization?view=minecraft-bedrock-stable ; https://learn.microsoft.com/en-us/minecraft/creator/documents/vibrantvisuals/keyframejsonsyntax?view=minecraft-bedrock-stable
+
+### 10.3 Acción inmediata para repetir la prueba v20-A
+
+Se creó una copia exacta del mismo archivo llamada `HD-v20A.mcpack` para volver a abrirlo en Inspector con un nombre corto. No se modificó el contenido del paquete: el SHA-256 sigue siendo `00de46bc9fa3ca216e6e6138dc352c8e8d3b9fa349979ff79d417d7025c14a33`. Así podremos comprobar si desaparece la única comprobación fallida sin introducir cambios en los JSON ni en las texturas.
+
+No se deben “arreglar” a ciegas las 21 advertencias de v20-A: primero se confirma la discrepancia de esquema con las fuentes oficiales, y se mantiene la prueba como experimento visual aparte. Después de repetir Inspector, todavía hace falta cargar el pack en Bedrock 26.52 y comprobar los ojos del gólem; el informe estático no confirma que se vean ni demasiado brillantes ni lo suficientemente visibles.
+
+### 10.4 Lecciones para nuestra herramienta de construcción
+
+- Nombrar los paquetes de prueba con nombres cortos (`HD-v20A.mcpack`, no un nombre largo con explicación completa) antes de ejecutar validadores que incorporan el directorio importado a la ruta.
+- Aceptar que un test puede no reconocer propiedades o formatos recientes, pero validar cada falso positivo contra la documentación oficial. No quitar `weather`, keyframes válidos o subpacks con formato oficial solo para bajar el contador.
+- En los futuros archivos JSON creados por nosotros, usar UTF-8 sin BOM y evitar entradas de `texture_list.json` para las imágenes de Texture Set cuando la regla lo prohíba.
+- Mantener separados tres estados: (1) sintaxis/estructura estática correcta, (2) reglas del Inspector satisfechas, y (3) aspecto visual/compatibilidad probada en Minecraft. No confundirlos.
