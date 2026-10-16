@@ -32,6 +32,7 @@ GitHub is the shared project record for confirmed decisions, work completed, evi
 
 See:
 - [Current state](docs/ESTADO_ACTUAL.md)
+- [Investigación V: Eclipse Shader, emisión selectiva de entidades y dirección artística](docs/INVESTIGACION_V_ECLIPSE_EMISION_DIRECCION_ARTISTICA.md) — auditoría de código/licencia, 36 fuentes Photonics de bloques, contraste de mapas MERS de mobs/lava y propuesta visual para Bedrock.
 - [Visual identity](docs/IDENTIDAD_VISUAL.md)
 - [Technical research: PBR and mobile optimization](docs/INVESTIGACION_TECNICA_OPTIMIZACION_PBR.md)
 - [Advanced research II: visual architecture and techniques](docs/INVESTIGACION_II_ARQUITECTURA_VISUAL_Y_TECNICAS.md)
@@ -52,6 +53,8 @@ See:
 Do not commit credentials, API keys, tokens, private personal data, or files that Ángel has chosen to keep private. Do not claim a feature was implemented or tested without evidence.
 
 ## Latest technical research
+
+- [Investigación V: Eclipse Shader, emisión selectiva de entidades y dirección artística](docs/INVESTIGACION_V_ECLIPSE_EMISION_DIRECCION_ARTISTICA.md) — auditoría de código/licencia, 36 fuentes Photonics de bloques, contraste de mapas MERS de mobs/lava y propuesta visual para Bedrock.
 
 - [Investigación v19: identidad visual, portal, lava y cielo del End](docs/INVESTIGACION_V19_IDENTIDAD_PORTAL_LAVA_END.md) — portal con alfa al 80 %, lava con RGB ×1.20 y experimento de menor niebla/gradación índigo en el End. Validación estática correcta; prueba visual pendiente.
 - [Investigación v18: restauración de lava, portal y contraste del End](docs/INVESTIGACION_V18_RESTAURACION_LAVA_PORTAL_END.md) — restauración de las tres imágenes animadas desde la referencia aportada y ajuste localizado del End. Validación estática completada; prueba visual pendiente.
