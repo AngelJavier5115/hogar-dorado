@@ -2,7 +2,7 @@
 
 **Fecha:** 15 de octubre de 2026  
 **Proyecto:** Hogar Dorado · Minecraft Bedrock indicado por Ángel como 26.52 · Vibrant Visuals · iPhone 14 Plus  
-**Estado:** auditoría estática de ocho archivos aportados; revisión documental de Creator Tools. La validación interactiva de Inspector y las pruebas en juego quedan pendientes.
+**Estado:** auditoría estática de ocho archivos aportados; revisión documental y dos rondas de Inspector documentadas para Lush Visuals y v20-A. Las pruebas visuales y de compatibilidad dentro de Minecraft siguen pendientes.
 
 ## 1. Objetivo y conclusión ejecutiva
 
@@ -298,3 +298,32 @@ No se deben “arreglar” a ciegas las 21 advertencias de v20-A: primero se con
 - Aceptar que un test puede no reconocer propiedades o formatos recientes, pero validar cada falso positivo contra la documentación oficial. No quitar `weather`, keyframes válidos o subpacks con formato oficial solo para bajar el contador.
 - En los futuros archivos JSON creados por nosotros, usar UTF-8 sin BOM y evitar entradas de `texture_list.json` para las imágenes de Texture Set cuando la regla lo prohíba.
 - Mantener separados tres estados: (1) sintaxis/estructura estática correcta, (2) reglas del Inspector satisfechas, y (3) aspecto visual/compatibilidad probada en Minecraft. No confundirlos.
+
+ 
+## 10.5 Segunda ejecución de Inspector — alias corto `HD-v20A.mcpack` (15 de octubre de 2026)
+
+Ángel compartió el nuevo informe HTML generado después de reabrir la copia con nombre corto. Esta segunda ejecución confirma que el único fallo anterior de v20-A dependía del nombre largo de importación:
+
+| Indicador | Primer informe (`hogar-dorado-v20-A-golem-ojos-PRUEBAS-PERSONALES`) | Segunda ejecución (`HD-v20A.mcpack`) |
+|---|---:|---:|
+| Errores | 20 | **0** |
+| Advertencias | 21 | 21 |
+| Pruebas exitosas | 39 | **40** |
+| Pruebas fallidas | 1 | **0** |
+| No aplicables | 14 | 14 |
+| Errores de procesamiento interno | 0 | 0 |
+
+- La comprobación `PATHLENGTH` deja de fallar: el nuevo informe no registra errores y muestra cero errores de procesamiento interno, cero errores de parseo JSON, cero manifiestos inválidos y cero dependencias faltantes.
+- El informe nuevo registra 177 archivos y 460,020 bytes de contenido descomprimido. Son los conteos del Inspector de esta ejecución; los inventarios locales anteriores usan su propio criterio de conteo y se conservan como observaciones separadas.
+- Las 21 advertencias se distribuyen en 19 casos `COMJSON131` para la propiedad `weather` dentro de `minecraft:fog_settings.volumetric.density`, un caso `JSON114` sobre `subpacks[0]` en el manifiesto y un caso `JSONF110` en `lighting/global.json` para `minecraft:lighting_settings.sky.intensity`.
+- La documentación oficial actual de niebla incluye el campo `weather` en densidad volumétrica; el formato de subpacks usa objetos que contienen `folder_name`, `name` y `memory_tier`; y el esquema de keyframes permite `sky.intensity` keyframed desde `format_version` 1.26.0. Por eso estos 21 avisos se mantienen clasificados como posibles discrepancias de esquema del validador, no como defectos confirmados de los archivos.
+- El nuevo informe enumera componentes de bioma y la capacidad PBR. Esa enumeración no es prueba de renderizado ni de compatibilidad con otros packs.
+
+**Conclusión técnica:** la validación estática de v20-A queda aprobada en la ronda actual del Inspector usando el nombre corto: 0 errores y 0 fallos. Las 21 advertencias permanecen registradas sin cambios de contenido. Esto no constituye aprobación artística, verificación del brillo de los ojos, prueba de FPS ni certificación de compatibilidad con Actions & Stuff.
+
+### Siguiente prueba
+
+1. Importar `HD-v20A.mcpack` en Minecraft Bedrock 26.52.
+2. Comparar la misma escena con v20-A, v19 y la referencia histórica v13 sin modificar la referencia; registrar packs activos, orden, bioma, hora y capturas.
+3. Evaluar si los ojos se perciben sutilmente emisivos, si el modelo conserva el aspecto original y si la diferencia resulta visible sin exageración.
+4. No empezar aún los cambios de piglin zombificado o lava; esperar la evidencia visual de esta máscara aislada.
