@@ -11,6 +11,15 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - **Repositorio:** privado, AngelJavier5115/hogar-dorado.
 - **Responsable:** Ángel.
 
+## Investigación V — Eclipse Shader y emisión selectiva (15 de octubre de 2026)
+
+- Ángel reportó después de probar v19 que persistían los problemas visuales y que la lava seguía plana/apagada; también señaló que el Blaze se percibía demasiado brillante. La v19 no se considera una corrección aceptada.
+- Se creó [Investigación V](INVESTIGACION_V_ECLIPSE_EMISION_DIRECCION_ARTISTICA.md), que audita el repositorio Eclipse Shader, su código relevante y licencia, y propone un catálogo de emisión selectiva para mobs y una dirección de color/sombra/atmósfera.
+- En la inspección estática del paquete de referencia 26.50.0, los mapas MERS principales de gólem de hierro, piglin y piglin zombificado tienen el canal verde emisivo a cero. Los mapas de lava quieta/en flujo también tienen el canal verde a cero; elevar el RGB no añade emisión PBR.
+- Eclipse contiene 36 fuentes Photonics en el archivo inspeccionado y son fuentes para bloques, no luces configuradas para mobs. La clasificación de entidades en entity.properties es de dispersión bajo la superficie y no un catálogo de emisión.
+- Próximo enfoque recomendado: no generar todavía una nueva compilación combinada. Probar máscaras pequeñas de ojos de gólem, piglin zombificado y Enderman por separado; experimentar con la lava en un cambio independiente.
+- **Límites:** auditoría de repositorio y archivos estáticos; no se ejecutó el juego ni se han validado las nuevas propuestas en el iPhone. v13 sigue congelada como referencia histórica.
+
 ## Estado de corrección v19 (15 de octubre de 2026)
 - Ángel confirmó que v18 restauró la animación y mejoró lava/portal, pero la transparencia del portal necesita ajuste, la lava se ve plana/apagada, el cielo del End sigue gris y la identidad artística se estaba perdiendo.
 - Se generó una única compilación local: `hogar-dorado-v19-identidad-restaurada-PRUEBAS-PERSONALES.mcpack`, fuera de GitHub por contener recursos vanilla de referencia.
@@ -18,7 +27,7 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - Lava: canales RGB de lava_still y lava_flow multiplicados por 1.20, limitados a 255; emisión PBR sin aumentar para evitar lavar el detalle.
 - End: sky_color #7560B8, fog_color #302344, inicio de niebla 0.90 y densidad volumétrica aérea 0.0008. Es una hipótesis más marcada, no una corrección visual confirmada.
 - Validación estática: ZIP íntegro, 176 archivos, 119 JSON válidos; portal 16×512, lava_still 16×512, lava_flow 32×512. No se han medido FPS, memoria o temperatura.
-- **Pendiente:** probar solo v19 en Bedrock 26.52, comparando portal, lava y la misma vista del End. La raíz artística que guía la decisión sigue siendo «Una nostalgia que parece un sueño»: atardeceres dorados, noches índigo, misterio sutil y fidelidad a la identidad de Minecraft.
+- **Resultado de prueba visual de Ángel:** tras probar v19, reportó que persistían los mismos problemas; la lava aún se veía plana/apagada. También indicó que el Blaze brillaba demasiado y parecía raro al ser el único mob con brillo destacado. Por tanto, v19 no se considera aprobada visualmente. La siguiente fase se documenta en Investigación V y separa la emisión de mobs del rediseño de lava. La raíz artística sigue siendo «Una nostalgia que parece un sueño»: atardeceres dorados, noches índigo, misterio sutil y fidelidad a Minecraft.
 
 ## Estado de corrección v18 (14 de octubre de 2026)
 - Ángel probó la v17 y reportó que lava y portal del Nether seguían viéndose mal; también percibió pérdida del impacto visual del paquete. Las capturas muestran texturas base con bandas diagonales repetitivas.
@@ -107,7 +116,7 @@ Consulta `docs/INVESTIGACION_IV_AUDITORIA_VANILLA_26_50.md` para hallazgos está
 - La única prueba visual de gameplay registrada en este ciclo corresponde a v16; no se midieron FPS/temperatura ni se probó v17.
 
 ## Último hito
-Se generó una única compilación de prueba v17 a partir de los errores visuales reportados por Ángel en v16. El informe docs/INVESTIGACION_V17_CORRECCION_TEXTURAS_AGUA.md registra los cambios, las comprobaciones estáticas y los límites; el aspecto final de v17 aún requiere prueba en el juego.
+Se completó la investigación V sobre Eclipse Shader, la diferencia entre emisión MERS y luz local, una auditoría estática de mapas de mobs/lava y la dirección de color/sombras que buscamos. El informe docs/INVESTIGACION_V_ECLIPSE_EMISION_DIRECCION_ARTISTICA.md registra fuentes, conteos, límites y experimentos propuestos. No se generó un nuevo paquete: las próximas máscaras y cambios de lava deben probarse por separado. La v13 continúa congelada como referencia histórica.
 
 ## Próximas tres tareas
 1. Probar únicamente v17 en el iPhone 14 Plus y repetir las escenas de lava, minerales y agua documentadas en el informe.
