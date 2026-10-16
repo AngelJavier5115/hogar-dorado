@@ -18,8 +18,8 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - Hallazgos útiles: Actions & Stuff 1.12 incluye SP0 “Custom Experience — Compatible with other texture packs”, SP1 “Vanilla Experience” y SP2 “Full Experience”. Chroma tiene un modo A&S separado e indica que debe ir encima de A&S para esa variante. Vibrance LOW se describe como iluminación con texturas vanilla para colocarse sobre otro pack. Prizma VANILLA y Dark Visuals Classic son candidatos de coexistencia antes que variantes con modelos/animaciones.
 - Esto respalda una dirección de diseño, no demuestra aún el tamaño de la demanda comunitaria. No se ha validado ninguna combinación de estos packs en el juego.
 - **Resultados del Inspector recibidos:** Lush Visuals reportó 683 errores (551 BOM, 103 referencias de Texture Set en `texture_list.json`, 27 rutas largas dependientes del nombre importado y 2 JSON desconocidos) y 41 avisos. Su reporte tiene 39 comprobaciones exitosas y 4 fallidas. Dos de sus avisos sobre esquema se contrastaron con documentación oficial actual y parecen discrepancias del validador; `pdr/global.json` merece revisión como posible error de ruta.
-- v20-A: Creator Tools detectó capacidad PBR, JSON/manifest válidos y cero dependencias faltantes; 39 comprobaciones exitosas, 1 fallida y 14 no aplicables. La única comprobación fallida fue longitud de 20 rutas que incluyen el largo nombre del archivo importado. Las 21 advertencias se contrastaron con documentación oficial sobre densidad volumétrica `weather`, keyframes de iluminación y estructura de subpacks; no se deben corregir a ciegas.
-- Se creó una copia exacta llamada `HD-v20A.mcpack` (mismo SHA-256, sin cambios de contenido) para repetir Inspector con nombre corto. **Pendiente:** volver a validar esa copia y probar v20-A dentro de Minecraft Bedrock 26.52; el informe del Inspector no confirma el aspecto visual de los ojos del gólem.
+- v20-A, primer informe: Creator Tools detectó capacidad PBR, JSON/manifiesto válidos y cero dependencias faltantes; 39 comprobaciones exitosas, 1 fallida y 14 no aplicables. La única prueba fallida era PATHLENGTH en 20 rutas que incluían el nombre largo de importación. Se repitió el Inspector usando el alias corto `HD-v20A.mcpack`: resultado nuevo, 0 errores, 21 advertencias, 40 pruebas exitosas, 0 fallidas y 14 no aplicables. La ruta corta elimina el fallo de PATHLENGTH. Las 21 advertencias son 19 avisos de esquema sobre `weather` en la niebla volumétrica, uno sobre objetos `subpacks` y uno sobre keyframes de `sky.intensity`; la documentación oficial respalda esos formatos, así que no deben corregirse a ciegas.
+- Se creó una copia exacta llamada `HD-v20A.mcpack` (mismo SHA-256, sin cambios de contenido). **Resultado confirmado:** Inspector con nombre corto arroja 0 errores y 0 pruebas fallidas; queda pendiente probar v20-A dentro de Minecraft Bedrock 26.52. El informe no confirma el aspecto visual de los ojos del gólem.
 
 ## Estado de experimento local v20-A — ojos del gólem
 
@@ -27,7 +27,7 @@ Este archivo es el punto de entrada para retomar el trabajo en otra conversació
 - Único cambio intencional frente a v19: dos píxeles emisivos pequeños en los iris rojos de la textura del gólem, mediante `textures/entity/iron_golem_mers.tga` y un Texture Set específico; no se cambiaron mapas de piglins, Enderman, lava ni perfiles atmosféricos.
 - Versión del manifiesto: 1.20.0. UUIDs nuevos respecto a las versiones anteriores.
 - **Validación estática:** ZIP íntegro, 178 archivos, 120 JSON válidos, TGA de MERS en 128×128, SHA-256 `00de46bc9fa3ca216e6e6138dc352c8e8d3b9fa349979ff79d417d7025c14a33`.
-- **Pendiente:** validar el archivo con Minecraft Creator Tools Inspector y luego probarlo en Minecraft Bedrock 26.52. No hay validación visual, medida de FPS, memoria, temperatura o batería. No es un cambio aceptado hasta que Ángel observe el resultado en el iPhone.
+- **Inspector (15 de octubre de 2026):** con el alias de nombre corto `HD-v20A.mcpack`, 0 errores, 21 advertencias, 40 pruebas exitosas, 0 fallidas y 14 no aplicables. El único fallo del informe anterior (PATHLENGTH, 20 rutas) desapareció sin cambiar el contenido del paquete. No hay validación visual, medida de FPS, memoria, temperatura o batería. No es un cambio aceptado hasta que Ángel observe el resultado en el iPhone.
 - El siguiente pack no modificará piglins ni Enderman todavía: primero hay que confirmar la convención y el resultado de esta máscara aislada.
 
 ## Investigación V — Eclipse Shader y emisión selectiva (15 de octubre de 2026)
@@ -135,11 +135,11 @@ Consulta `docs/INVESTIGACION_IV_AUDITORIA_VANILLA_26_50.md` para hallazgos está
 - La única prueba visual de gameplay registrada en este ciclo corresponde a v16; no se midieron FPS/temperatura ni se probó v17.
 
 ## Último hito
-Se documentó Investigación VI sobre ocho packs Bedrock, modos de compatibilidad de Actions & Stuff y el flujo propuesto de Inspector. Además, se creó el paquete de prueba personal v20-A, que solo agrega emisión moderada a dos píxeles de los ojos del gólem y pasó validación estática de ZIP/JSON. La validación de Creator Tools y el resultado dentro del iPhone siguen pendientes. La v13 continúa congelada como referencia histórica.
+Se documentó Investigación VI sobre ocho packs Bedrock, modos de compatibilidad de Actions & Stuff y el flujo de Inspector. El paquete personal v20-A pasó 40 pruebas aplicables del Inspector cuando se validó con el nombre corto `HD-v20A.mcpack` (0 errores, 21 advertencias, 0 fallos). Sigue pendiente comprobar el aspecto dentro del iPhone. La v13 continúa congelada como referencia histórica.
 
 ## Próximas tres tareas
-1. Repetir Inspector con `HD-v20A.mcpack` y guardar el nuevo informe para confirmar si desaparecen las 20 rutas largas derivadas del nombre del archivo.
-2. Importar v20-A en un mundo de prueba de Bedrock 26.52 y comparar ojos del gólem contra v19 y la referencia v13 congelada; registrar la captura y los packs activos.
+1. Importar v20-A en un mundo de prueba de Bedrock 26.52 y comparar los ojos del gólem contra v19 y la referencia v13 congelada; registrar capturas, orden de packs y condiciones de iluminación.
+2. Revisar las 21 advertencias solo si hay evidencia adicional o incompatibilidad reproducible; no quitar propiedades respaldadas por la documentación oficial únicamente para silenciar al Inspector.
 3. Solo después del resultado visual, preparar el experimento aislado del piglin zombificado y otro experimento independiente para lava con máscara MERS y contraste costra/grieta. No publicar recursos vanilla ni activos de terceros sin permiso.
 
 ## Decisiones que requieren aprobación de Ángel
@@ -150,6 +150,6 @@ Se documentó Investigación VI sobre ocho packs Bedrock, modos de compatibilida
 - Decisiones de diseño que alteren de forma relevante los brillos, la atmósfera o el rendimiento objetivo.
 
 ## Registro técnico
-- **Pruebas de gameplay:** Ángel probó v16 equilibrada, v17 y v19 y compartió comentarios/capturas; v19 no fue aprobada visualmente. v20-A pasó muchas comprobaciones del Inspector, pero tiene pendiente repetir la validación con nombre corto y no se ha probado visualmente dentro de Minecraft.
+- **Pruebas de gameplay:** Ángel probó v16 equilibrada, v17 y v19 y compartió comentarios/capturas; v19 no fue aprobada visualmente. v20-A obtuvo 0 errores y 0 pruebas fallidas en Creator Tools al importarse con nombre corto; todavía no se ha probado visualmente dentro de Minecraft.
 - **Benchmarks de rendimiento:** no realizados.
-- **Cambio de esta actualización:** se generó v18 como paquete personal local y se documentaron las observaciones de v17; los binarios no se subieron al repositorio.
+- **Cambio de esta actualización:** se documentó la segunda ejecución de Inspector de v20-A. El paquete personal binario sigue fuera del repositorio.
