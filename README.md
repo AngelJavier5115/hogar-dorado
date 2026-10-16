@@ -32,6 +32,7 @@ GitHub is the shared project record for confirmed decisions, work completed, evi
 
 See:
 - [Current state](docs/ESTADO_ACTUAL.md)
+- [Investigación VI: packs Bedrock, compatibilidad con Actions & Stuff y Minecraft Creator Tools](docs/INVESTIGACION_VI_PACKS_BEDROCK_COMPATIBILIDAD_ACTIONS_STUFF_MCTOOLS.md) — auditoría de ocho archivos, modos de subpack y protocolo para la primera prueba de Inspector.
 - [Investigación V: Eclipse Shader, emisión selectiva de entidades y dirección artística](docs/INVESTIGACION_V_ECLIPSE_EMISION_DIRECCION_ARTISTICA.md) — auditoría de código/licencia, 36 fuentes Photonics de bloques, contraste de mapas MERS de mobs/lava y propuesta visual para Bedrock.
 - [Visual identity](docs/IDENTIDAD_VISUAL.md)
 - [Technical research: PBR and mobile optimization](docs/INVESTIGACION_TECNICA_OPTIMIZACION_PBR.md)
@@ -53,6 +54,8 @@ See:
 Do not commit credentials, API keys, tokens, private personal data, or files that Ángel has chosen to keep private. Do not claim a feature was implemented or tested without evidence.
 
 ## Latest technical research
+
+- [Investigación VI: packs Bedrock, compatibilidad con Actions & Stuff y Minecraft Creator Tools](docs/INVESTIGACION_VI_PACKS_BEDROCK_COMPATIBILIDAD_ACTIONS_STUFF_MCTOOLS.md) — auditoría de ocho archivos, modos de subpack y protocolo para la primera prueba de Inspector.
 
 - [Investigación V: Eclipse Shader, emisión selectiva de entidades y dirección artística](docs/INVESTIGACION_V_ECLIPSE_EMISION_DIRECCION_ARTISTICA.md) — auditoría de código/licencia, 36 fuentes Photonics de bloques, contraste de mapas MERS de mobs/lava y propuesta visual para Bedrock.
 
