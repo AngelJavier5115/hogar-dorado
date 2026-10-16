@@ -230,3 +230,19 @@ No hace falta crear un parche específico de A&S si Hogar Dorado no altera la de
 La primera combinación a probar será **Vibrant Visuals + Actions & Stuff SP0 + Lush Visuals**, con el Inspector de Creator Tools utilizado antes de entrar al mundo. Después se comparará la variante A&S de Chroma Visuals para aprender su patrón de compatibilidad. En paralelo, las pruebas emisivas de Hogar Dorado seguirán aisladas del trabajo ambiental; primero máscara MERS de ojos del gólem y piglin zombificado y, por separado, ajuste de la emisión ya marcada del Enderman.
 
 El recurso público de Hogar Dorado no recibirá archivos binarios de estos packs de terceros. Todos los hallazgos confirmados, las decisiones y los límites deben permanecer registrados aquí para que otro colaborador pueda retomar el trabajo.
+
+
+## 9. Anexo posterior — primer paquete aislado y paso inmediato de Inspector
+
+Tras completar el inventario se preparó, fuera del repositorio, el paquete personal `hogar-dorado-v20-A-golem-ojos-PRUEBAS-PERSONALES.mcpack`. Cambia únicamente dos píxeles emisivos de los ojos del gólem frente a v19 y mantiene fuera del cambio los piglins, Enderman, lava y perfiles ambientales.
+
+Validación estática comprobada localmente:
+- ZIP íntegro; 178 archivos.
+- 120 JSON interpretados sin errores de sintaxis.
+- Manifiesto y módulo de recurso en versión 1.20.0, UUIDs únicos.
+- TGA MERS de 128×128 con solo las dos posiciones objetivo modificadas.
+- SHA-256: `00de46bc9fa3ca216e6e6138dc352c8e8d3b9fa349979ff79d417d7025c14a33`.
+
+Este control estático no valida las reglas de Creator Tools ni el aspecto real en juego. En la primera sesión con el sitio conviene validar primero **Lush Visuals** como muestra pequeña del material aportado y después v20-A. Para cada uno: abrir mctools.dev, añadir/abrir el archivo MCPack, entrar en Inspector, ampliar el conjunto desde Focused a Full/Raw si los resultados parecen incompletos, exportar CSV/HTML si aparece la opción y anotar errores frente a avisos/recomendaciones. La guía oficial confirma que la validación del sitio admite MCPack y que los archivos se procesan localmente en el navegador: https://learn.microsoft.com/es-mx/minecraft/creator/documents/mctoolsoverview?view=minecraft-bedrock-experimental.
+
+A día de esta actualización no se ha ejecutado Inspector ni se ha probado v20-A dentro de Minecraft. No registrar un resultado como aprobado hasta recibir el informe y las capturas de la prueba real.
